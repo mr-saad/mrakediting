@@ -201,10 +201,6 @@ footer p {
     -o-transform: rotate(180deg);
     bottom: -4.4rem;
   }
-
-  ul{
-    position: relative;
-  }
   .navSvg {
     top: 80%;
   }
