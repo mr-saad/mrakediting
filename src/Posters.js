@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 
 const Posters = ({ posters, axios, admin }) => {
+  const [loading, setloading] = useState(false);
   const delItem = async (id, poster) => {
+    setloading(true);
     console.log(id, poster);
     confirm("Are You Sure You Want To Delete?");
     await axios.post("/del", { id, poster: true });
+    setloading(false);
   };
   return (
-    <>
+    <div className="mt-5">
+      {loading && (
+        <div className="position-absolute w-100 h-100 d-flex justify-content-center align-items-center bg-dark text-light">
+          Loading
+        </div>
+      )}
+
       <h1
         data-aos="fade-up"
-        data-aos-easing="linear"
+        data-aos-easing="ease"
         data-aos-duration="700"
-        className="posters_h1 text-dark mx-auto px-2"
+        data-aos-delay="300"
+        className="posters_h1 text-dark mx-auto px-2 text-capitalize"
         id="posters"
       >
         Posters
@@ -25,7 +35,7 @@ const Posters = ({ posters, axios, admin }) => {
             <div
               className="poster"
               data-aos="fade-up"
-              data-aos-easing="linear"
+              data-aos-easing="ease"
               data-aos-duration="700"
               data-aos-delay="500"
               key={_id}
@@ -54,7 +64,7 @@ const Posters = ({ posters, axios, admin }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

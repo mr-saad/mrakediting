@@ -48,9 +48,9 @@ const App = () => {
       <Navbar />
       <div className="main_div container">
         <Header />
+        <About />
         <Posters posters={posters} axios={axios} admin={admin} />
         <Thumbnails thumbnails={thumbnails} axios={axios} admin={admin} />
-        <About />
         {admin && (
           <Admin axios={axios} thumbnails={thumbnails} posters={posters} />
         )}
