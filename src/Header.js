@@ -5,7 +5,6 @@ const Header = () => {
   const [height, setHeight] = useState(0);
   useEffect(() => {
     setHeight(innerHeight - document.querySelector("nav").offsetHeight);
-    console.dir(textRef.current);
   }, []);
   const textRef = useRef();
   return (
@@ -62,11 +61,6 @@ const Header = () => {
             autoStart: true,
           }}
         />
-        <ul className="border-top border-bottom my-3 text-capitalize">
-          <li className="text-start">
-            I have 1.5yr experience in <br /> graphic designing.
-          </li>
-        </ul>
       </div>
       <img
         data-aos="fade-left"
