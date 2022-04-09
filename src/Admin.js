@@ -44,9 +44,9 @@ const Admin = ({ thumbnails, posters, axios }) => {
   };
 
   return (
-    <div className="container my-5" id="admin">
+    <div className="container my-5 text-dark" id="admin">
       <div className="records">
-        <h1 className="ids_h1">IDs</h1>
+        <h1 className="ids_h1 mx-auto px-2">IDs</h1>
         <div className="row">
           <div className="col-md-6">
             <h3 className="text-center">Thumbnails</h3>
@@ -71,7 +71,7 @@ const Admin = ({ thumbnails, posters, axios }) => {
         </div>
       </div>
       <div className="row">
-        <h1 className="admin_h1">Admin</h1>
+        <h1 className="admin_h1 mx-auto px-2">Admin</h1>
         <div className="col-md-6 col-12 my-3">
           <h2>Insert</h2>
           <form onSubmit={Insert}>
