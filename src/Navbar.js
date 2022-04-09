@@ -59,7 +59,7 @@ const Navbar = () => {
             )}
             <svg
         style={{ zIndex: -1 }}
-        className="position-absolute navSvg"
+        className="position-absolute navSvg start-0"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >
