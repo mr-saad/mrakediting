@@ -13,8 +13,8 @@ const About = () => {
         className="d-flex align-items-center flex-column"
         style={{ margin: "0rem 0" }}
       >
-        <h1 className="text-start">I Make...</h1>
-        <ul className="text-start">
+        <h1 className="align-self-start">I Make...</h1>
+        <ul className="text-start text-muted">
           <li>YT Thumbnail | Poster | Retouching</li>
           <li>Logo | YT Cover | Lyrical Video</li>
           <li>Business card | Banner</li>
