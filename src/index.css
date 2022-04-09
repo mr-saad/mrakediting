@@ -186,7 +186,7 @@ footer p {
 
 @media (max-width: 768px) {
   .ayanImg {
-    /* margin-top: -10rem; */
+    margin-top: -3rem;
   }
   .header {
     grid-auto-flow: row;
