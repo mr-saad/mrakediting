@@ -10,10 +10,8 @@ const About = () => {
     >
       <h1 className="about_h1 px-2 mt-5 mx-auto">Services</h1>
       <div
-        className="d-flex align-items-center flex-column"
-        style={{ margin: "0rem 0" }}
+        className="d-flex justify-content-center"
       >
-        <h1 className="align-self-start">I Make...</h1>
         <ul className="text-start text-muted">
           <li>YT Thumbnail | Poster | Retouching</li>
           <li>Logo | YT Cover | Lyrical Video</li>
