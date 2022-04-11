@@ -38,7 +38,7 @@ const Header = () => {
         data-aos-easing="ease"
         data-aos-duration="1000"
         data-aos-delay="500"
-        className="text-dark text-center"
+        className="text-dark text-center headerText"
         style={{ minHeight: 65, minWidth: 285 }}
       >
         <Type
