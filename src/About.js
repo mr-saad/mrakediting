@@ -12,11 +12,14 @@ const About = () => {
       <div
         className="d-flex justify-content-center"
       >
-        <ul className="text-start text-muted">
+        <ul className="text-start text-muted text-capitalize">          
           <li>YT Thumbnail | Poster | Retouching</li>
           <li>Logo | YT Cover | Lyrical Video</li>
-          <li>Business card | Banner</li>
+          <li>Business card | Visiting card</li>
           <li>Wedding Card | Invitation Card</li>
+          <li>advertising post design | bill book invoice</li>
+          <li>social media post design</li>
+          <p className="text-center">All types of designing Available...</p>
         </ul>
       </div>
     </div>
