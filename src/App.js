@@ -8,27 +8,29 @@ import Admin from "./Admin";
 import Posters from "./Posters";
 import Axios from "axios";
 import Pusher from "pusher-js";
+import Graphics from "./Graphics";
 
 const axios = Axios.create({
-  baseURL: "https://mrakedits.herokuapp.com",
+  baseURL: "http://localhost:5555",
 });
 
 const App = () => {
+  const [All, setAll] = useState([]);
+
   const [thumbnails, setThumbnails] = useState([]);
   const [posters, setPosters] = useState([]);
+  const [graphics, setGraphics] = useState([]);
 
-  const getThumbnails = async () => {
-    const res = await axios.get("/thumbnails");
-    setThumbnails(res.data);
-  };
-  const getPosters = async () => {
-    const res = await axios.get("/posters");
-    setPosters(res.data);
+  const getAll = async () => {
+    const res = (await axios.get("/all")).data;
+    setAll(res);
+    setThumbnails(res.filter((all) => all.type === "thumbnail"));
+    setPosters(res.filter((all) => all.type === "poster"));
+    setGraphics(res.filter((all) => all.type === "graphic"));
   };
 
   useEffect(() => {
-    getThumbnails();
-    getPosters();
+    getAll();
   }, []);
 
   const admin = localStorage.getItem("admin") === "mrak1";
@@ -39,8 +41,7 @@ const App = () => {
 
   var channel = pusher.subscribe("ayans");
   channel.bind("my-event", (data) => {
-    getThumbnails();
-    getPosters();
+    getAll();
   });
 
   return (
@@ -49,11 +50,25 @@ const App = () => {
       <div className="main_div container">
         <Header />
         <About />
-        <Posters posters={posters} axios={axios} admin={admin} />
-        <Thumbnails thumbnails={thumbnails} axios={axios} admin={admin} />
-        {admin && (
-          <Admin axios={axios} thumbnails={thumbnails} posters={posters} />
-        )}
+        <Graphics
+          graphics={graphics}
+          axios={axios}
+          admin={admin}
+          getAll={getAll}
+        />
+        <Posters
+          posters={posters}
+          axios={axios}
+          admin={admin}
+          getAll={getAll}
+        />
+        <Thumbnails
+          thumbnails={thumbnails}
+          axios={axios}
+          admin={admin}
+          getAll={getAll}
+        />
+        {admin && <Admin axios={axios} all={All} getAll={getAll} />}
       </div>
       <Footer />
     </>

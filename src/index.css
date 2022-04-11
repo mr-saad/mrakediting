@@ -28,14 +28,18 @@
   bottom: -19.7rem;
 }
 .navSvg {
-  top: 0%;
+  transition: 0.3s ease;
   filter: drop-shadow(0 0 1rem rgba(33, 37, 41, 0.5));
   -webkit-filter: drop-shadow(0 0 1rem rgba(33, 37, 41, 0.5));
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
 }
 .footerSvg {
   transform: rotate(180deg);
   left: 0;
-  bottom: 0;
+  bottom: 70%;
   filter: drop-shadow(0 0 1rem rgba(33, 37, 41, 0.5));
   -webkit-filter: drop-shadow(0 0 1rem rgba(33, 37, 41, 0.5));
   -webkit-transform: rotate(180deg);
@@ -92,7 +96,8 @@
 .about_h1,
 .ids_h1,
 .admin_h1,
-.posters_h1 {
+.posters_h1,
+.graphic_h1 {
   text-align: center;
   border-bottom: 2px solid #212529;
   width: fit-content;
@@ -129,7 +134,8 @@
 /* thumbnails =================================== */
 
 .thumbnails,
-.posters {
+.posters,
+.graphics {
   margin: 2rem 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -145,15 +151,20 @@
   left: 50%;
   transform: translateX(-50%);
   text-decoration: none;
-  color: #000;
-  background: #fff;
+  color: #fff;
+  background: #212529;
   padding: 0.2rem 1rem;
-  border-radius: 20px;
+  border-radius: 10px;
   transition: all 0.3s ease;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
 
 .thumbnail,
-.poster {
+.poster,
+.graphic {
   box-shadow: 0 0 1rem rgba(33, 37, 41, 0.3);
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -163,14 +174,16 @@
 }
 
 .thumbnail img,
-.poster img {
+.poster img,
+.graphic img {
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
 
 .thumbnail .details,
-.poster .details {
+.poster .details,
+.graphic .details {
   padding: 1rem;
   color: #212529;
 }
@@ -180,13 +193,13 @@ footer {
   margin-top: 10rem;
 }
 footer p {
-  padding: 1rem;
+  padding: 2rem 1rem;
   margin: 0;
 }
 
 @media (max-width: 768px) {
   .ayanImg {
-    margin-top: -3rem;
+    margin-top: -10rem;
   }
   .header {
     grid-auto-flow: row;
@@ -205,13 +218,13 @@ footer p {
     top: 80%;
   }
 
-
   .main_div {
     min-height: calc(100vh - 79.22px);
   }
   /* thumbnails =========================== */
   .thumbnails,
-  .posters {
+  .posters,
+  .graphics {
     grid-template-columns: repeat(1, minmax(0, 1fr));
     margin: 3rem 0;
   }
@@ -222,6 +235,6 @@ footer p {
     margin-top: 3rem;
   }
   .footerSvg {
-    bottom: 80%;
+    bottom: 100%;
   }
 }

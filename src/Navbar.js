@@ -1,12 +1,15 @@
+import { useState } from "react";
+
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
   return (
     <nav
       className="navbar navbar-expand-lg navbar-dark bg-dark p-0 position-relative"
       id="nav"
     >
       <svg
-        style={{ zIndex: -1 }}
-        className="position-absolute navSvg start-0"
+        style={{ zIndex: -1, top: open ? "93%" : "80%" }}
+        className="position-absolute navSvg"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 1440 320"
       >
@@ -28,14 +31,20 @@ const Navbar = () => {
           aria-controls="navbarSupportedContent"
           aria-expanded="true"
           aria-label="Toggle navigation"
+          onClick={() => setOpen(!open)}
         >
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                Home
+              <a className="nav-link" href="#about">
+                Services
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#graphics">
+                Graphic Designs
               </a>
             </li>
             <li className="nav-item">
@@ -48,11 +57,7 @@ const Navbar = () => {
                 Posters
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#about">
-                About Us
-              </a>
-            </li>
+
             <li className="nav-item">
               <a
                 className="nav-link"
@@ -69,7 +74,6 @@ const Navbar = () => {
                 </a>
               </li>
             )}
-            
           </ul>
         </div>
       </div>

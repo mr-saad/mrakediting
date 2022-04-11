@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Type from "typewriter-effect";
 
 const Header = () => {
@@ -6,14 +6,9 @@ const Header = () => {
   useEffect(() => {
     setHeight(innerHeight - document.querySelector("nav").offsetHeight);
   }, []);
-  const textRef = useRef();
+
   return (
-    <div
-      className="header"
-      style={{
-        minHeight: height,
-      }}
-    >
+    <div className="header" style={{ minHeight: height }}>
       <svg
         style={{ zIndex: -1 }}
         className="position-absolute start-0 bottom-0 svgShape"
@@ -43,9 +38,8 @@ const Header = () => {
         data-aos-easing="ease"
         data-aos-duration="1000"
         data-aos-delay="500"
-        className="text-dark text-center mt-5"
+        className="text-dark text-center"
         style={{ minHeight: 65, minWidth: 285 }}
-        ref={textRef}
       >
         <Type
           onInit={(type) => {

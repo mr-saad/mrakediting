@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Posters = ({ posters, axios, admin, getAll }) => {
+const Graphics = ({ graphics, admin, axios, getAll }) => {
   const [loading, setloading] = useState(false);
 
   const delItem = async (id, public_id) => {
@@ -12,11 +12,11 @@ const Posters = ({ posters, axios, admin, getAll }) => {
   };
 
   return (
-    <div className="mt-5" id="posters">
+    <div className="mt-5" id="graphics">
       {loading && (
         <div
           style={{ zIndex: 3 }}
-          className="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-dark text-light fs-1"
+          className="position-fixed start-0 top-0 fs-1 w-100 h-100 d-flex justify-content-center align-items-center bg-dark text-light"
         >
           Loading
         </div>
@@ -29,14 +29,14 @@ const Posters = ({ posters, axios, admin, getAll }) => {
         data-aos-delay="300"
         className="posters_h1 text-dark mx-auto px-2"
       >
-        Posters
+        Graphic Designs
       </h1>
-      <div className="posters text-capitalize">
-        {posters.map((all) => {
+      <div className="graphics text-capitalize">
+        {graphics.map((all) => {
           const { desc, _id, image, post_url, public_id } = all;
           return (
             <div
-              className="poster"
+              className="graphic"
               data-aos="fade-up"
               data-aos-easing="ease"
               data-aos-duration="700"
@@ -68,4 +68,4 @@ const Posters = ({ posters, axios, admin, getAll }) => {
   );
 };
 
-export default Posters;
+export default Graphics;

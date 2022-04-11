@@ -1,19 +1,24 @@
 import { useState } from "react";
 import { AiFillHeart } from "react-icons/ai";
 
-const Thumbnails = ({ thumbnails, admin, axios }) => {
+const Thumbnails = ({ thumbnails, admin, axios, getAll }) => {
   const [loading, setLoading] = useState(false);
-  const delItem = async (id) => {
+
+  const delItem = async (id, public_id) => {
     setLoading(true);
     confirm("Are You Sure You Want To Delete?");
-    await axios.post("/del", { id, poster: false });
+    await axios.post("/del", { id, public_id });
     setLoading(false);
+    getAll();
   };
 
   return (
-    <>
+    <div className="mt-5" id="thumbnails">
       {loading && (
-        <div className="position-absolute w-100 h-100 d-flex justify-content-center align-items-center bg-dark text-light">
+        <div
+          style={{ zIndex: 5 }}
+          className="position-fixed top-0 start-0 fs-1 w-100 h-100 d-flex justify-content-center align-items-center bg-dark text-light"
+        >
           Loading
         </div>
       )}
@@ -23,13 +28,12 @@ const Thumbnails = ({ thumbnails, admin, axios }) => {
         data-aos-duration="700"
         data-aos-delay="300"
         className="thumbnails_h1 text-dark mx-auto px-2 mt-5"
-        id="thumbnails"
       >
         Thumbnails
       </h1>
-      <div className="thumbnails">
+      <div className="thumbnails text-capitalize">
         {thumbnails.map((all) => {
-          const { _id, image, post_url, desc, likes } = all;
+          const { _id, image, post_url, desc, public_id } = all;
           return (
             <div
               className="thumbnail"
@@ -48,13 +52,10 @@ const Thumbnails = ({ thumbnails, admin, axios }) => {
                 </div>
               </div>
               <div className="details">
-                {desc}
-                <p className="mb-0">
-                  Likes: <AiFillHeart /> {likes}
-                </p>
+                <p className="mb-0">{desc}</p>
                 {admin && (
                   <button
-                    onClick={() => delItem(_id)}
+                    onClick={() => delItem(_id, public_id)}
                     className="btn btn-danger"
                   >
                     Delete
@@ -65,7 +66,7 @@ const Thumbnails = ({ thumbnails, admin, axios }) => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 
