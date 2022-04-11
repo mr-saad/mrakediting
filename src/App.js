@@ -50,8 +50,8 @@ const App = () => {
       <div className="main_div container">
         <Header />
         <About />
-        <Graphics
-          graphics={graphics}
+        <Thumbnails
+          thumbnails={thumbnails}
           axios={axios}
           admin={admin}
           getAll={getAll}
@@ -62,12 +62,13 @@ const App = () => {
           admin={admin}
           getAll={getAll}
         />
-        <Thumbnails
-          thumbnails={thumbnails}
+        <Graphics
+          graphics={graphics}
           axios={axios}
           admin={admin}
           getAll={getAll}
         />
+      
         {admin && <Admin axios={axios} all={All} getAll={getAll} />}
       </div>
       <Footer />
