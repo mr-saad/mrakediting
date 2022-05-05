@@ -60,7 +60,7 @@ const Header = () => {
         data-aos="fade-left"
         data-aos-easing="ease"
         data-aos-duration="1000"
-        src="/images/ayan1000.png"
+        src="/images/20220505_165907.png"
         className="ayanImg"
         alt="Ayan Khatri"
       />
