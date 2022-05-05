@@ -122,13 +122,8 @@
 .header img {
   width: 400px;
   max-width: 90%;
-  border-radius: 100%;
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
-  box-shadow: 0 1rem 2rem rgba(33, 37, 41, 0.3);
-  transition-delay: 5.7s;
+
+transition-delay: 5.7s;
 }
 
 /* thumbnails =================================== */
