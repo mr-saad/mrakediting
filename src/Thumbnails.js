@@ -13,7 +13,7 @@ const Thumbnails = ({ thumbnails, admin, axios, getAll }) => {
   };
 
   return (
-    <div className="mt-5" id="thumbnails">
+    <div className="thumbnails-container" id="thumbnails">
       {loading && (
         <div
           style={{ zIndex: 5 }}
@@ -23,11 +23,11 @@ const Thumbnails = ({ thumbnails, admin, axios, getAll }) => {
         </div>
       )}
       <h1
-        data-aos="fade-up"
+        data-aos="fade"
         data-aos-easing="ease"
         data-aos-duration="700"
         data-aos-delay="300"
-        className="thumbnails_h1 text-dark mx-auto px-2 mt-5"
+        className="thumbnails_h1 mx-auto"
       >
         Thumbnails
       </h1>
@@ -37,14 +37,14 @@ const Thumbnails = ({ thumbnails, admin, axios, getAll }) => {
           return (
             <div
               className="thumbnail"
-              data-aos="fade-up"
+              data-aos="fade"
               data-aos-easing="ease"
               data-aos-duration="700"
               data-aos-delay="500"
               key={_id}
             >
               <div className="thumb_img">
-                <img src={image} alt="image" />
+                <img loading="lazy" src={image} alt="image" />
                 <div className="content">
                   <a target="_new" href={post_url}>
                     View Post
@@ -56,7 +56,7 @@ const Thumbnails = ({ thumbnails, admin, axios, getAll }) => {
                 {admin && (
                   <button
                     onClick={() => delItem(_id, public_id)}
-                    className="btn btn-danger"
+                    className="btn btn-danger mt-2"
                   >
                     Delete
                   </button>

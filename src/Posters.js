@@ -12,7 +12,7 @@ const Posters = ({ posters, axios, admin, getAll }) => {
   };
 
   return (
-    <div className="mt-5" id="posters">
+    <div className="posters-container" id="posters">
       {loading && (
         <div
           style={{ zIndex: 3 }}
@@ -23,11 +23,11 @@ const Posters = ({ posters, axios, admin, getAll }) => {
       )}
 
       <h1
-        data-aos="fade-up"
+        data-aos="fade"
         data-aos-easing="ease"
         data-aos-duration="700"
         data-aos-delay="300"
-        className="posters_h1 text-dark mx-auto px-2"
+        className="posters_h1 mx-auto"
       >
         Posters
       </h1>
@@ -37,14 +37,14 @@ const Posters = ({ posters, axios, admin, getAll }) => {
           return (
             <div
               className="poster"
-              data-aos="fade-up"
+              data-aos="fade"
               data-aos-easing="ease"
               data-aos-duration="700"
               data-aos-delay="500"
               key={_id}
             >
               <div className="thumb_img">
-                <img src={image} alt="image" />
+                <img loading="lazy" src={image} alt="image" />
                 <a target="_new" href={post_url}>
                   View Post
                 </a>
@@ -54,7 +54,7 @@ const Posters = ({ posters, axios, admin, getAll }) => {
                 {admin && (
                   <button
                     onClick={() => delItem(_id, public_id)}
-                    className="btn btn-danger"
+                    className="btn btn-danger mt-2"
                   >
                     Delete
                   </button>

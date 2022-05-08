@@ -47,11 +47,11 @@ const App = () => {
   return (
     <>
       <Navbar />
-      <div className="main_div container">
+      <div className="main_div">
         <Header />
         <About />
-        <Thumbnails
-          thumbnails={thumbnails}
+        <Graphics
+          graphics={graphics}
           axios={axios}
           admin={admin}
           getAll={getAll}
@@ -62,13 +62,12 @@ const App = () => {
           admin={admin}
           getAll={getAll}
         />
-        <Graphics
-          graphics={graphics}
+        <Thumbnails
+          thumbnails={thumbnails}
           axios={axios}
           admin={admin}
           getAll={getAll}
         />
-      
         {admin && <Admin axios={axios} all={All} getAll={getAll} />}
       </div>
       <Footer />

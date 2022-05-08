@@ -51,7 +51,7 @@ const Admin = ({ all, axios, getAll }) => {
   };
 
   return (
-    <div className="container my-5 text-dark" id="admin">
+    <div className="container my-5 text-light" id="admin">
       {loading && (
         <div
           style={{ zIndex: 3 }}
@@ -61,24 +61,23 @@ const Admin = ({ all, axios, getAll }) => {
         </div>
       )}
 
-      <div className="records">
-        <h1 className="ids_h1 mx-auto px-2">IDs</h1>
-        <div className="row">
-          <div className="col-md-6 mx-auto">
-            <h3 className="text-center">All Types</h3>
-            {all.map((all) => {
-              return (
-                <div key={all._id} className="text-center">
-                  {all.title}: {all._id}
-                </div>
-              );
-            })}
-          </div>
-        </div>
+      <div
+        className="container my-5"
+        style={{ backgroundColor: "var(--bg)", padding: "2rem 1rem" }}
+      >
+        <h1 className="ids_h1 mx-auto mb-5">Unique Ids</h1>
+        {all.map((all) => {
+          return (
+            <div key={all._id} className="text-center my-3">
+              {all.title}: {all._id}
+            </div>
+          );
+        })}
       </div>
+
+      <h1 className="admin_h1 mx-auto">Admin</h1>
       <div className="row">
-        <h1 className="admin_h1 mx-auto">Admin</h1>
-        <div className="col-md-6 col-12 my-3">
+        <div className="col-md-6 col-12 my-5">
           <h2>Insert</h2>
           <form onSubmit={Insert}>
             <input
@@ -127,7 +126,8 @@ const Admin = ({ all, axios, getAll }) => {
             </button>
           </form>
         </div>
-        <div className="col-md-6 col-12 my-3">
+
+        <div className="col-md-6 col-12 my-5">
           <h2>Update</h2>
           <form onSubmit={Update}>
             <input
