@@ -11,8 +11,14 @@ import Pusher from "pusher-js";
 import Graphics from "./Graphics";
 
 const axios = Axios.create({
-  baseURL: "https://mrakedits.herokuapp.com",
+  baseURL: "http://localhost:5555",
 });
+
+var pusher = new Pusher("d45ee330ac2261b51eef", {
+  cluster: "ap2",
+});
+
+var channel = pusher.subscribe("ayans");
 
 const App = () => {
   const [All, setAll] = useState([]);
@@ -35,11 +41,6 @@ const App = () => {
 
   const admin = localStorage.getItem("admin") === "mrak1";
 
-  var pusher = new Pusher("d45ee330ac2261b51eef", {
-    cluster: "ap2",
-  });
-
-  var channel = pusher.subscribe("ayans");
   channel.bind("my-event", (data) => {
     getAll();
   });

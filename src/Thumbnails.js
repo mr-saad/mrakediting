@@ -1,13 +1,12 @@
 import { useState } from "react";
-import { AiFillHeart } from "react-icons/ai";
 
 const Thumbnails = ({ thumbnails, admin, axios, getAll }) => {
   const [loading, setLoading] = useState(false);
 
-  const delItem = async (id, public_id) => {
+  const delItem = async (_id, public_id) => {
     setLoading(true);
     confirm("Are You Sure You Want To Delete?");
-    await axios.post("/del", { id, public_id });
+    await axios.post("/del", { _id, public_id });
     setLoading(false);
     getAll();
   };

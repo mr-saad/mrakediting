@@ -3,10 +3,10 @@ import React, { useState } from "react";
 const Posters = ({ posters, axios, admin, getAll }) => {
   const [loading, setloading] = useState(false);
 
-  const delItem = async (id, public_id) => {
+  const delItem = async (_id, public_id) => {
     setloading(true);
     confirm("Are You Sure You Want To Delete?");
-    await axios.post("/del", { id, public_id });
+    await axios.post("/del", { _id, public_id });
     setloading(false);
     getAll();
   };

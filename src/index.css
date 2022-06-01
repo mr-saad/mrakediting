@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +15,10 @@
   --shadow: rgba(80, 80, 165, 0.5);
   --para: rgba(255, 255, 255, 0.4);
 }
+::selection {
+  background: var(--headtext);
+  color: var(--bg);
+}
 html {
   background-color: var(--bg);
 }
@@ -24,13 +29,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  box-shadow: 0 0 1rem var(--shadow), inset 0 0 1rem var(--shadow);
-  border: 1px solid white;
-  border-radius: 20px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  box-shadow: 0 0 0.5rem var(--shadow), inset 0 0 0.5rem var(--shadow);
+  border: 1px solid var(--shadow);
 }
 .atype {
   text-shadow: 0 0 1rem rgb(80, 80, 165);
@@ -84,44 +84,71 @@ body {
   filter: invert(1);
 }
 
-.header {
-  display: grid;
-  grid-auto-flow: column;
-  align-items: center;
-  justify-items: center;
-}
+/* home page===========================>> */
+
 .header h1 {
-  font-family: "Grape Nuts", cursive;
-  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  left: 10%;
+  top: 25%;
+  font-size: 9vw;
+  z-index: 2;
+  letter-spacing: 5px;
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
+  color: #fff;
 }
-.header img {
+.header span {
+  font-family: "Poppins";
+  letter-spacing: 5px;
+}
+
+figure {
+  position: relative;
   width: 400px;
   max-width: 90%;
-  transition-delay: 5s;
-  pointer-events: none;
-  user-select: none;
+  margin-left: 60%;
+}
+
+figure::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  left: 0;
+}
+
+figure img {
+  width: 100%;
 }
 
 /* services==================>> */
 #about {
-  background-color: var(--bg);
-  padding-block: 10rem;
+  padding: 5rem;
+  display: flex;
+  justify-content: space-evenly;
 }
 #about ul {
   list-style: circle;
 }
 #about ul li {
-  line-height: 2;
+  line-height: 2.5;
   letter-spacing: 1px;
+}
+
+.work h1 {
+  color: var(--headtext);
+  padding: 3rem;
+  border: 1px solid var(--shadow);
+  box-shadow: 0 0 0.5rem var(--shadow);
 }
 
 .thumbnails-container,
 .posters-container,
 .graphics-container {
-  background-color: var(--bg);
   padding: 5rem 1rem;
-  margin: 2rem 0;
 }
+
 /* thumbnails =================================== */
 
 .thumbnails,
@@ -144,13 +171,7 @@ body {
   text-decoration: none;
   color: #fff;
   background: var(--bg);
-  padding: 0.2rem 1rem;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  -ms-border-radius: 20px;
-  -o-border-radius: 20px;
+  padding: 0.2rem 0.5rem;
 }
 
 .thumbnail,
@@ -160,19 +181,13 @@ body {
   flex-direction: column;
   justify-content: space-around;
   box-shadow: 0 0 0.5rem var(--shadow);
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  border: 1px solid var(--shadow);
 }
 
 .thumbnail img,
 .poster img,
 .graphic img {
   width: 100%;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .thumbnail .details,
@@ -183,7 +198,6 @@ body {
 }
 
 footer {
-  background: var(--bg);
   margin-top: 10rem;
   padding: 4rem 1rem 0 1rem;
   border-radius: 0 0 20px 20px;
@@ -213,13 +227,34 @@ footer p {
   margin: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   body {
     margin: 1rem;
   }
 
   .header {
-    grid-auto-flow: row;
+    position: relative;
+  }
+
+  .header figure {
+    margin-top: 30%;
+    margin-left: 0;
+    margin-inline: auto;
+  }
+
+  .header h1 {
+    top: 1rem;
+    font-size: 10vw;
+    left: 1rem;
+  }
+
+  #about {
+    padding: 5rem 1rem;
+    flex-direction: column;
+  }
+
+  .work h1 {
+    padding: 2rem;
   }
 
   /* thumbnails =========================== */

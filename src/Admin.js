@@ -8,7 +8,6 @@ const Admin = ({ all, axios, getAll }) => {
     post_url: "",
     image: "",
     title: "",
-
     type: "",
   });
 
@@ -39,6 +38,13 @@ const Admin = ({ all, axios, getAll }) => {
     e.preventDefault();
     await axios.post("/new", { insert });
     setloading(false);
+    setInsert({
+      desc: "",
+      post_url: "",
+      image: "",
+      title: "",
+      type: "",
+    });
     getAll();
   };
 
@@ -47,6 +53,13 @@ const Admin = ({ all, axios, getAll }) => {
     e.preventDefault();
     await axios.post("/update", { update, updateId });
     setloading(false);
+    setUpdate({
+      desc: "",
+      post_url: "",
+      image: "",
+      title: "",
+      type: "",
+    });
     getAll();
   };
 
@@ -161,6 +174,15 @@ const Admin = ({ all, axios, getAll }) => {
               type="text"
               className="form-control mb-2"
             />
+            <select
+              className="form-control mb-2"
+              onChange={(e) => setUpdate({ ...update, type: e.target.value })}
+            >
+              <option value="">Change Category</option>
+              <option value="poster">Poster</option>
+              <option value="thumbnail">Thumbnail</option>
+              <option value="graphic">Graphic Design</option>
+            </select>
             <input
               onChange={handleUpdateImage}
               type="file"

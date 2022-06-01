@@ -1,12 +1,21 @@
 const About = () => {
   return (
-    <div id="about" className="my-5">
-      <div
-        data-aos="fade"
-        data-aos-easing="ease"
-        data-aos-duration="700"
-        data-aos-delay="300"
-      >
+    <div
+      data-aos="fade"
+      data-aos-easing="ease"
+      data-aos-duration="700"
+      data-aos-delay="300"
+      id="about"
+    >
+      <div className="d-flex flex-column work">
+        <h1 className="mb-4">
+          250+ <br /> Happy Clients
+        </h1>
+        <h1 className="mb-md-0 mb-5">
+          500+ <br /> Projects
+        </h1>
+      </div>
+      <div>
         <h1 className="about_h1 mx-auto">Services</h1>
         <div className="d-flex justify-content-center mt-4">
           <ul
