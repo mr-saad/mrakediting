@@ -11,7 +11,7 @@ import Pusher from "pusher-js";
 import Graphics from "./Graphics";
 
 const axios = Axios.create({
-  baseURL: "http://localhost:5555",
+  baseURL: "https://mrakedits.herokuapp.com",
 });
 
 var pusher = new Pusher("d45ee330ac2261b51eef", {
