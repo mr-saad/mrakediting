@@ -90,7 +90,6 @@ body {
   position: absolute;
   left: 10%;
   top: 25%;
-  font-size: 9vw;
   z-index: 2;
   letter-spacing: 5px;
   text-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
@@ -227,10 +226,6 @@ footer p {
 }
 
 @media (max-width: 640px) {
-  body {
-    margin: 0rem;
-  }
-
   .header {
     position: relative;
   }
@@ -243,7 +238,6 @@ footer p {
 
   .header h1 {
     top: 1rem;
-    font-size: 8vw;
     left: 1rem;
   }
 
