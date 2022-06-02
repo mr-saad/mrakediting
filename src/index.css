@@ -31,11 +31,6 @@ body {
   box-shadow: 0 0 0.5rem var(--shadow), inset 0 0 0.5rem var(--shadow);
   border: 1px solid var(--shadow);
 }
-.atype {
-  text-shadow: 0 0 1rem rgb(80, 80, 165);
-  color: var(--headtext);
-}
-
 .navbar-toggler {
   border: none !important;
   color: var(--headtext) !important;
