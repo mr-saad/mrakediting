@@ -16,10 +16,10 @@ const Header = () => {
             color: "rgba(0,0,0,0)",
           }}
         >
-          Freelance
+         Graphic Designer
         </span>{" "}
         <br />
-        Designer
+      Freelancer
       </h1>
       <figure>
         <img src="/ayan.webp" alt="Ayan Khatri" />
