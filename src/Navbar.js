@@ -36,15 +36,16 @@ const Navbar = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#thumbnails">
-                Thumbnails
-              </a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link" href="#posters">
                 Posters
               </a>
             </li>
+            <li className="nav-item">
+              <a className="nav-link" href="#thumbnails">
+                Thumbnails
+              </a>
+            </li>
+            
 
             <li className="nav-item">
               <a
