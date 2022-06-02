@@ -9,17 +9,18 @@ const Header = () => {
   return (
     <div className="header" style={{ minHeight }}>
       <h1>
-        Ayan Khatri <br />
+       <span style={{fontSize:"calc(10vw+1rem)"}}>Ayan Khatri</span> <br />
         <span
           style={{
             WebkitTextStroke: "1px white",
             color: "rgba(0,0,0,0)",
+            fontSize: "calc(8vw-1rem)"
           }}
         >
          Graphic Designer
         </span>{" "}
         <br />
-      Freelancer
+      <span style={{fontSize:"calc(8vw-1rem)"}}>Freelancer</span>
       </h1>
       <figure>
         <img src="/ayan.webp" alt="Ayan Khatri" />
