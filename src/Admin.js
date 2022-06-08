@@ -74,10 +74,7 @@ const Admin = ({ all, axios, getAll }) => {
         </div>
       )}
 
-      <div
-        className="container my-5"
-        style={{ backgroundColor: "var(--bg)", padding: "2rem 1rem" }}
-      >
+      <div className="container my-5">
         <h1 className="ids_h1 mx-auto mb-5">Unique Ids</h1>
         {all.map((all) => {
           return (

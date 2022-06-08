@@ -19,7 +19,7 @@ const About = () => {
         <h1 className="about_h1 mx-auto">Services</h1>
         <div className="d-flex justify-content-center mt-4">
           <ul
-            style={{ color: "rgba(255,255,255,.5)" }}
+            style={{ color: "rgba(17,17,17,0.6)" }}
             className="text-start text-capitalize"
           >
             <li>YT Thumbnail | Poster | Retouching</li>
@@ -30,7 +30,7 @@ const About = () => {
             <li>Advertising Post design | Bill book invoice</li>
             <li>Social Media Post Design</li>
             <p
-              style={{ marginLeft: -22 }}
+              style={{ marginLeft: -22, color: "#111" }}
               className="text-center fw-bold mt-2 mb-0"
             >
               All types of designing Available
