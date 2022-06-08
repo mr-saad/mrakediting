@@ -175,6 +175,8 @@ figure img {
 }
 
 .thumb_img a {
+  display: block;
+  margin: auto;
   text-decoration: none;
   color: #fff;
   background: var(--bg);
@@ -201,7 +203,7 @@ figure img {
 .poster .details,
 .graphic .details {
   padding: 1rem;
-  color: #fff;
+  color: #111;
 }
 
 footer {
