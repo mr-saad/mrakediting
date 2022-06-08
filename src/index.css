@@ -178,7 +178,6 @@ figure img {
 .poster a,
 .graphic a {
   display: block;
-  margin: auto;
   text-decoration: none;
   color: #fff;
   background: var(--bg);
