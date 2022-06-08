@@ -43,12 +43,12 @@ const Graphics = ({ graphics, admin, axios, getAll }) => {
               data-aos-delay="500"
               key={_id}
             >
-              <div className="thumb_img">
+              
                 <img loading="lazy" src={image} alt="image" />
                 <a target="_new" href={post_url}>
                   View Post
                 </a>
-              </div>
+             
               <div className="details">
                 <p className="mb-0">{desc}</p>
                 {admin && (
