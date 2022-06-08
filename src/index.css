@@ -169,19 +169,12 @@ figure img {
 .posters,
 .graphics {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-gap: 3rem;
   margin: 3rem;
 }
-.thumb_img {
-  position: relative;
-}
 
 .thumb_img a {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
   text-decoration: none;
   color: #fff;
   background: var(--bg);
