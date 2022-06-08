@@ -174,7 +174,9 @@ figure img {
   margin: 3rem;
 }
 
-.thumb_img a {
+.thumbnail a,
+.poster a,
+.graphic a {
   display: block;
   margin: auto;
   text-decoration: none;
