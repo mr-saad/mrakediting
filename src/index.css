@@ -106,7 +106,7 @@ figure {
   position: relative;
   width: 500px;
   max-width: 90%;
-  aspect-ratio: square;
+  aspect-ratio: 1/1;
 }
 
 figure::after {
