@@ -192,26 +192,23 @@ figure img {
 
 .thumb_img {
   overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.thumb_img img{
+  user-select: none;
 }
 
 .thumbnail .thumb_img {
-  position: relative;
-  width: 100%;
   aspect-ratio: 16/10;
 }
 .poster .thumb_img {
-  position: relative;
-  width: 100%;
   aspect-ratio: 4/5;
 }
 .graphic .thumb_img {
-  position: relative;
-  width: 100%;
   aspect-ratio: 1/1;
 }
 
-.thumb_img img,
-.thumb_img img,
 .thumb_img img {
   position: absolute;
   width: 100%;
@@ -224,8 +221,7 @@ figure img {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
-.thumb_img img.active,
-.thumb_img img.active,
+
 .thumb_img img.active {
   transition: 0.3s ease;
   -webkit-transition: 0.3s ease;
