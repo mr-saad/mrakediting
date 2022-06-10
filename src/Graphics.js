@@ -28,11 +28,11 @@ const Graphics = ({ graphics, admin, axios, getAll }) => {
           const { desc, _id, image, post_url, public_id } = all;
           return (
             <div className="graphic" key={_id}>
-              <div className="thumb_img">
+              <div onClick={(e) => console.dir(e.target)} className="thumb_img">
                 <img
-                  onContextMenu="return false;"
                   onTouchStart={(e) => ShowIt(e)}
                   onTouchEnd={(e) => HideIt(e)}
+                  onTouchCancel={(e) => HideIt(e)}
                   loading="lazy"
                   src={image}
                   alt="image"
@@ -64,16 +64,11 @@ const Graphics = ({ graphics, admin, axios, getAll }) => {
 export default Graphics;
 
 export const ShowIt = (e) => {
-  const overlay = document.createElement("div");
-  overlay.classList.add("overlay");
-  document.body.appendChild(overlay);
   document.body.style.overflow = "hidden";
-  e.target.classList.add("active");
+  e.target.parentElement.classList.add("active");
 };
 
 export const HideIt = (e) => {
-  const overlay = document.querySelector(".overlay");
-  document.body.removeChild(overlay);
   document.body.style.overflow = "auto";
-  e.target.classList.remove("active");
+  e.target.parentElement.classList.remove("active");
 };
