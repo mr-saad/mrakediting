@@ -30,6 +30,7 @@ const Graphics = ({ graphics, admin, axios, getAll }) => {
             <div className="graphic" key={_id}>
               <div className="thumb_img">
                 <img
+                  onContextMenu="return false;"
                   onTouchStart={(e) => ShowIt(e)}
                   onTouchEnd={(e) => HideIt(e)}
                   loading="lazy"
