@@ -1,23 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
   will-change: contents;
 }
 
 :root {
   --bg: #111;
   --headtext: rgb(17, 17, 17);
-  --shadow: rgba(17, 17, 17, 0.2);
+  --shadow: rgba(17, 17, 17, 0.15);
   --para: rgba(17, 17, 17, 0.4);
 }
 ::selection {
   background: var(--bg);
   color: #fff;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  backdrop-filter: blur(5px);
 }
 
 nav {
@@ -105,34 +116,20 @@ nav {
 figure {
   position: relative;
   width: 500px;
-  max-width: 90%;
   aspect-ratio: 1/1;
-}
-
-figure::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-  left: 0;
+  max-width: 90%;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
+  overflow: hidden;
 }
 
 figure img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   object-position: top;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
 }
 
 /* services==================>> */
@@ -154,13 +151,13 @@ figure img {
   color: var(--headtext);
   padding: 3rem;
   border: 1px solid var(--shadow);
-  box-shadow: 0 0 0.5rem var(--shadow);
+  box-shadow: 0 0 0.3rem var(--shadow);
 }
 
 .thumbnails-container,
 .posters-container,
 .graphics-container {
-  padding: 5rem 1rem;
+  margin: 2rem 1rem;
 }
 
 /* thumbnails =================================== */
@@ -174,14 +171,15 @@ figure img {
   margin: 3rem;
 }
 
-.thumbnail a,
-.poster a,
-.graphic a {
-  display: block;
+.thumbnails a,
+.posters a,
+.graphics a {
   text-decoration: none;
   color: #fff;
   background: var(--bg);
   padding: 0.2rem 0.5rem;
+  display: block;
+  margin-top: -1px;
 }
 
 .thumbnail,
@@ -189,22 +187,62 @@ figure img {
 .graphic {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   box-shadow: 0 0 0.5rem var(--shadow);
-  border: 1px solid var(--shadow);
 }
 
-.thumbnail img,
-.poster img,
-.graphic img {
+.thumb_img {
+  overflow: hidden;
+}
+
+.thumbnail .thumb_img {
+  position: relative;
   width: 100%;
+  aspect-ratio: 16/10;
+}
+.poster .thumb_img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/5;
+}
+.graphic .thumb_img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+
+.thumb_img img,
+.thumb_img img,
+.thumb_img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.thumb_img img.active,
+.thumb_img img.active,
+.thumb_img img.active {
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  z-index: 20;
+  position: fixed;
+  width: 90%;
+  height: auto;
 }
 
 .thumbnail .details,
 .poster .details,
 .graphic .details {
   padding: 1rem;
-  color: #111;
+  color: var(--headtext);
 }
 
 footer {
@@ -268,6 +306,7 @@ footer p {
   .graphics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     margin: 2rem 0;
+    grid-gap: 2rem;
   }
   .navbar-brand img {
     max-width: 11rem;

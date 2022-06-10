@@ -5,8 +5,8 @@ const Graphics = ({ graphics, admin, axios, getAll }) => {
 
   const delItem = async (_id, public_id) => {
     setloading(true);
-    confirm("Are You Sure You Want To Delete?");
-    await axios.post("/del", { _id, public_id });
+    const confirmIt = confirm("Are You Sure You Want To Delete?");
+    confirmIt && (await axios.post("/del", { _id, public_id }));
     setloading(false);
     getAll();
   };
@@ -22,33 +22,25 @@ const Graphics = ({ graphics, admin, axios, getAll }) => {
         </div>
       )}
 
-      <h1
-        data-aos="fade"
-        data-aos-easing="ease"
-        data-aos-duration="700"
-        data-aos-delay="300"
-        className="posters_h1 mx-auto"
-      >
-        Graphic Designs
-      </h1>
+      <h1 className="posters_h1 mx-auto">Graphic Designs</h1>
       <div className="graphics text-capitalize">
         {graphics.map((all) => {
           const { desc, _id, image, post_url, public_id } = all;
           return (
-            <div
-              className="graphic"
-              data-aos="fade"
-              data-aos-easing="ease"
-              data-aos-duration="700"
-              data-aos-delay="500"
-              key={_id}
-            >
-              
-                <img loading="lazy" src={image} alt="image" />
-                <a target="_new" href={post_url}>
-                  View Post
-                </a>
-             
+            <div className="graphic" key={_id}>
+              <div className="thumb_img">
+                <img
+                  onTouchStart={(e) => ShowIt(e)}
+                  onTouchEnd={(e) => HideIt(e)}
+                  loading="lazy"
+                  src={image}
+                  alt="image"
+                />
+              </div>
+
+              <a target="_new" href={post_url}>
+                View Post
+              </a>
               <div className="details">
                 <p className="mb-0">{desc}</p>
                 {admin && (
@@ -69,3 +61,18 @@ const Graphics = ({ graphics, admin, axios, getAll }) => {
 };
 
 export default Graphics;
+
+export const ShowIt = (e) => {
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+  document.body.appendChild(overlay);
+  document.body.style.overflow = "hidden";
+  e.target.classList.add("active");
+};
+
+export const HideIt = (e) => {
+  const overlay = document.querySelector(".overlay");
+  document.body.removeChild(overlay);
+  document.body.style.overflow = "auto";
+  e.target.classList.remove("active");
+};

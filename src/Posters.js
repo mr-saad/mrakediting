@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { HideIt, ShowIt } from "./Graphics";
 
 const Posters = ({ posters, axios, admin, getAll }) => {
   const [loading, setloading] = useState(false);
@@ -22,33 +23,24 @@ const Posters = ({ posters, axios, admin, getAll }) => {
         </div>
       )}
 
-      <h1
-        data-aos="fade"
-        data-aos-easing="ease"
-        data-aos-duration="700"
-        data-aos-delay="300"
-        className="posters_h1 mx-auto"
-      >
-        Posters
-      </h1>
+      <h1 className="posters_h1 mx-auto">Posters</h1>
       <div className="posters text-capitalize">
         {posters.map((all) => {
           const { desc, _id, image, post_url, public_id } = all;
           return (
-            <div
-              className="poster"
-              data-aos="fade"
-              data-aos-easing="ease"
-              data-aos-duration="700"
-              data-aos-delay="500"
-              key={_id}
-            >
+            <div className="poster" key={_id}>
               <div className="thumb_img">
-                <img loading="lazy" src={image} alt="image" />
-                <a target="_new" href={post_url}>
-                  View Post
-                </a>
+                <img
+                  onTouchStart={(e) => ShowIt(e)}
+                  onTouchEnd={(e) => HideIt(e)}
+                  loading="lazy"
+                  src={image}
+                  alt="image"
+                />
               </div>
+              <a target="_new" href={post_url}>
+                View Post
+              </a>
               <div className="details">
                 <p className="mb-0">{desc}</p>
                 {admin && (

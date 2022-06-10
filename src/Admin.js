@@ -34,37 +34,54 @@ const Admin = ({ all, axios, getAll }) => {
   };
 
   const Insert = async (e) => {
-    setloading(true);
     e.preventDefault();
-    await axios.post("/new", { insert });
-    setloading(false);
-    setInsert({
-      desc: "",
-      post_url: "",
-      image: "",
-      title: "",
-      type: "",
-    });
-    getAll();
+    setloading(true);
+    try {
+      await axios.post("/new", { insert });
+      e.target.reset();
+
+      getAll();
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    } finally {
+      setloading(false);
+      e.target.reset();
+      setInsert({
+        desc: "",
+        post_url: "",
+        image: "",
+        title: "",
+        type: "",
+      });
+    }
   };
 
   const Update = async (e) => {
     setloading(true);
     e.preventDefault();
-    await axios.post("/update", { update, updateId });
-    setloading(false);
-    setUpdate({
-      desc: "",
-      post_url: "",
-      image: "",
-      title: "",
-      type: "",
-    });
-    getAll();
+    try {
+      await axios.post("/update", { update, updateId });
+
+      getAll();
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    } finally {
+      setloading(false);
+      e.target.reset();
+      setUpdate({
+        desc: "",
+        post_url: "",
+        image: "",
+        title: "",
+        type: "",
+      });
+    }
   };
 
   return (
-    <div className="container my-5 text-light" id="admin">
+    <div className="container my-5" id="admin">
       {loading && (
         <div
           style={{ zIndex: 3 }}

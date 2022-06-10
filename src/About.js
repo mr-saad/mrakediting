@@ -4,7 +4,6 @@ const About = () => {
       data-aos="fade"
       data-aos-easing="ease"
       data-aos-duration="700"
-      data-aos-delay="300"
       id="about"
     >
       <div className="d-flex flex-column work">

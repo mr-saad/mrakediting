@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShowIt, HideIt } from "./Graphics";
 
 const Thumbnails = ({ thumbnails, admin, axios, getAll }) => {
   const [loading, setLoading] = useState(false);
@@ -21,34 +22,25 @@ const Thumbnails = ({ thumbnails, admin, axios, getAll }) => {
           Loading
         </div>
       )}
-      <h1
-        data-aos="fade"
-        data-aos-easing="ease"
-        data-aos-duration="700"
-        data-aos-delay="300"
-        className="thumbnails_h1 mx-auto"
-      >
-        Thumbnails
-      </h1>
+      <h1 className="thumbnails_h1 mx-auto">Thumbnails</h1>
       <div className="thumbnails text-capitalize">
         {thumbnails.map((all) => {
           const { _id, image, post_url, desc, public_id } = all;
           return (
-            <div
-              className="thumbnail"
-              data-aos="fade"
-              data-aos-easing="ease"
-              data-aos-duration="700"
-              data-aos-delay="500"
-              key={_id}
-            >
+            <div className="thumbnail" key={_id}>
               <div className="thumb_img">
-                <img loading="lazy" src={image} alt="image" />
-                <div className="content">
-                  <a target="_new" href={post_url}>
-                    View Post
-                  </a>
-                </div>
+                <img
+                  onTouchStart={(e) => ShowIt(e)}
+                  onTouchEnd={(e) => HideIt(e)}
+                  loading="lazy"
+                  src={image}
+                  alt="image"
+                />
+              </div>
+              <div className="content">
+                <a target="_new" href={post_url}>
+                  View Post
+                </a>
               </div>
               <div className="details">
                 <p className="mb-0">{desc}</p>

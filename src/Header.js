@@ -16,7 +16,7 @@ const Header = () => {
     <div className="header" style={{ minHeight }}>
       <div
         className="typeContainer d-flex flex-column align-items-center"
-        style={{ width: 267, height: 94 }}
+        style={{ width: 292, height: 94 }}
       >
         <Type
           onInit={(type) => {
@@ -24,18 +24,15 @@ const Header = () => {
           }}
           options={{ autoStart: true, cursorClassName: "d-none" }}
         />
-
-
-          <Type
-            onInit={(type) => {
-              type
-                .pauseFor(1700)
-                .typeString("<p>Graphic Designer | Freelancer</p>")
-                .start();
-            }}
-            options={{ autoStart: true, cursorClassName: "d-none" }}
-          />
-       
+        <Type
+          onInit={(type) => {
+            type
+              .pauseFor(1700)
+              .typeString("<p>Graphic Designer | Freelancer</p>")
+              .start();
+          }}
+          options={{ autoStart: true, cursorClassName: "d-none" }}
+        />
       </div>
       <figure>
         <img src="/ayan.webp" alt="Ayan Khatri" />
