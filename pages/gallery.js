@@ -91,7 +91,9 @@ export default Gallery;
 import { Client } from "@notionhq/client";
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
+
 export const getServerSideProps = async () => {
+console.log(process.env.NOTION_TOKEN)
   const results = (
     await notion.databases.query({
       database_id: process.env.NOTION_DATABASE_ID,
