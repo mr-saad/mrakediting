@@ -1,6 +1,14 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+export const animations = {
+  animate: { opacity: 1 },
+  initial: { opacity: 0 },
+  exit: { opacity: 0 },
+  transition: { easings: "anticipate" },
+};
 
 const Home = () => {
   const [minHeight, setMinHeight] = useState(0);
@@ -9,7 +17,7 @@ const Home = () => {
   }, []);
 
   return (
-    <header style={{ minHeight }}>
+    <motion.header {...animations} style={{ minHeight }}>
       <div className="left">
         <h1 className="headingAk">
           Hi! I'm <br />
@@ -17,9 +25,8 @@ const Home = () => {
         </h1>
         <p className="tag">graphic designer / freelancer</p>
         <p className="headerDescription">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur
-          nulla veritatis voluptates. Voluptas aspernatur quaerat dicta
-          consectetur corporis id explicabo.
+          "design can be art. design can be aesthetics. design is so simple,
+          that's why it is so complicated."
         </p>
         <Link href="/about" className="btn">
           More About Me
@@ -27,13 +34,17 @@ const Home = () => {
       </div>
       <figure>
         <Image
-          fill
-          style={{ objectFit: "cover", objectPosition: "top" }}
+          quality={50}
+          placeholder="blur"
+          blurDataURL="/ayan.webp"
+          layout="fill"
+          objectFit="cover"
+          objectPosition="top"
           src="/ayan.webp"
           alt="Ayan Khatri"
         />
       </figure>
-    </header>
+    </motion.header>
   );
 };
 

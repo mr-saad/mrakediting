@@ -89,12 +89,14 @@ header {
 .headingAk {
   font-size: 3rem;
   font-weight: normal;
+  line-height: 0.9;
 }
 .headingAk span {
   font-weight: bold;
 }
 
 .tag {
+  margin-top: 0.5rem;
   text-transform: capitalize;
   margin-bottom: 2rem;
 }
@@ -116,7 +118,8 @@ header {
   -o-border-radius: 1000px;
 }
 .headerDescription {
-  text-align: justify;
+  text-transform: capitalize;
+  /* text-align: justify; */
 }
 
 figure {
@@ -223,7 +226,6 @@ figure img {
 
 .whatido h2 {
   text-align: center;
-  margin-bottom: 1rem;
 }
 .whatido li {
   line-height: 2;

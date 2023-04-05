@@ -1,6 +1,8 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import React, { useEffect, useState } from "react";
-import Spinner from "react-spinners/ClimbingBoxLoader";
+
+import { motion } from "framer-motion";
+import { animations } from "./index";
 
 const categories = ["Graphic Design", "Poster", "Thumbnail"];
 
@@ -50,7 +52,7 @@ const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
   );
 
   return (
-    <div style={{ minHeight }}>
+    <motion.div {...animations} style={{ minHeight }}>
       <div className="filterContainer">
         {categories.map((all) => (
           <button
@@ -71,10 +73,11 @@ const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
               className={`imgContainer ${all.properties.Type.select.name}`}
             >
               <Image
+                quality={60}
                 src={all.properties.Photo.files[0].file.url}
                 alt={all.id}
-                style={{ objectFit: "cover" }}
-                fill
+                objectFit="cover"
+                layout="fill"
                 placeholder="blur"
                 blurDataURL={all.properties.Photo.files[0].file.url}
               />
@@ -82,7 +85,7 @@ const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
           );
         })}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -91,9 +94,7 @@ export default Gallery;
 import { Client } from "@notionhq/client";
 const notion = new Client({ auth: process.env.NOTION_TOKEN });
 
-
 export const getServerSideProps = async () => {
-console.log(process.env.NOTION_TOKEN)
   const results = (
     await notion.databases.query({
       database_id: process.env.NOTION_DATABASE_ID,

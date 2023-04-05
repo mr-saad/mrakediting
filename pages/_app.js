@@ -1,12 +1,14 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import Spinner from "react-spinners/ClimbingBoxLoader";
+import Spinner from "react-spinners/RingLoader";
 import Router from "next/router";
+import { AnimatePresence, motion } from "framer-motion";
+import { animations } from "./index";
 
 import "../styles/global.css";
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps, router }) {
   const [minHeight, setMinHeight] = useState(0);
 
   const [loading, setLoading] = useState(false);
@@ -37,7 +39,7 @@ export default function MyApp({ Component, pageProps }) {
           content="mrakediting,mrayankhatri,ayan,khatri,mr,photoshop,editing,photo,graphic-design,design,graphic,poster,thumbnail,youtube-thumbnail,video-editing,video,mrakediting.netlify.app"
         />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content="Ayan Khatri, Saad Khatri" />
         <meta name="title" content="Mr Ak Editing | Official Website" />
@@ -71,13 +73,19 @@ export default function MyApp({ Component, pageProps }) {
           content="Mr Ak Editing Provides Top Notch Editing Experience in Almost Everything"
         />
       </Head>
-      {loading ? (
-        <div style={{ minHeight }} className="loadingContainer">
-          <Spinner />
-        </div>
-      ) : (
-        <Component {...pageProps} />
-      )}
+      <AnimatePresence exitBeforeEnter>
+        {loading ? (
+          <motion.div
+            {...animations}
+            style={{ minHeight }}
+            className="loadingContainer"
+          >
+            <Spinner color="#faa500" />
+          </motion.div>
+        ) : (
+          <Component {...pageProps} key={router.route} />
+        )}
+      </AnimatePresence>
       <Navbar />
     </>
   );
