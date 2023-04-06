@@ -41,7 +41,7 @@ button {
 /* Navbar============================>> */
 
 nav {
-  position: sticky;
+  position: fixed;
   background: orange;
   bottom: 0;
   left: 0;
@@ -138,10 +138,6 @@ figure img {
 
 /* gallery=================>> */
 
-.gallery {
-  margin-bottom: 1rem;
-}
-
 .filterContainer {
   display: flex;
   justify-content: space-evenly;
@@ -170,6 +166,7 @@ figure img {
   max-width: 1200px;
   margin-inline: auto;
   margin-top: 1rem;
+  margin-bottom: 4rem;
   grid-gap: 2rem;
 }
 
