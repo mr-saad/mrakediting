@@ -12,7 +12,7 @@ const About = () => {
       {/* <div className="flex"> */}
       <div className="workGrid">
         <div className="workTile">
-          <span className="bigTxt">5+ </span>
+          <span className="bigTxt">3+ </span>
           <br />
           Years Experience
         </div>
@@ -22,11 +22,11 @@ const About = () => {
         </div>
         <div className="vrLine"></div>
         <div className="workTile">
-          <span className="bigTxt">400+</span> <br />
+          <span className="bigTxt">500+</span> <br />
           Happy Clients
         </div>
         <div className="workTile">
-          <span className="bigTxt">9k+</span> <br />
+          <span className="bigTxt">2k+</span> <br />
           Followers on IG
         </div>
       </div>

@@ -36,11 +36,11 @@ const Home = () => {
         <Image
           quality={50}
           placeholder="blur"
-          blurDataURL="/ayan.webp"
+          blurDataURL="/ayan_new.jpg"
           layout="fill"
           objectFit="cover"
           objectPosition="top"
-          src="/ayan.webp"
+          src="/ayan_new.jpg"
           alt="Ayan Khatri"
         />
       </figure>

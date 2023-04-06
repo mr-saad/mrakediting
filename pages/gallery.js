@@ -4,12 +4,11 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { animations } from "./index";
 
-const categories = ["Graphic Design", "Poster", "Thumbnail"];
+const categories = [, "Poster", "Thumbnail", "Graphic Design"];
 
 const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
-  const [selectedCategory, setSelectedCategory] = useState("Graphic Design");
+  const [selectedCategory, setSelectedCategory] = useState("Poster");
   const [finals, setFinals] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [minHeight, setMinHeight] = useState(0);
 
   useEffect(() => {
@@ -38,9 +37,7 @@ const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
 
       default:
         setFinals(
-          results.filter(
-            (all) => all.properties.Type.select.name === "Graphic Design"
-          )
+          results.filter((all) => all.properties.Type.select.name === "Poster")
         );
     }
   }, [selectedCategory]);
@@ -52,7 +49,7 @@ const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
   );
 
   return (
-    <motion.div {...animations} style={{ minHeight }}>
+    <motion.div {...animations} className="gallery" style={{ minHeight }}>
       <div className="filterContainer">
         {categories.map((all) => (
           <button
