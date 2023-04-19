@@ -8,12 +8,9 @@ import { RiInstagramFill, RiWhatsappFill } from "react-icons/ri";
 
 import Link from "next/link";
 const Contact = () => {
-  const [minHeight, setMinHeight] = useState(0);
-  useEffect(() => {
-    setMinHeight(innerHeight - document.querySelector("nav").clientHeight);
-  }, []);
+
   return (
-    <motion.div style={{ minHeight }} className="contact" {...animations}>
+    <motion.section className="contact" {...animations}>
       <Link target="_blank" href="tel:919265749251" className="icon_container">
         <FaPhoneAlt style={{ marginRight: 5 }} /> Mobile Number: +91 92657 49251
       </Link>
@@ -38,7 +35,7 @@ const Contact = () => {
       >
         <RiWhatsappFill style={{ marginRight: 5 }} /> WhatsApp: 9265749251
       </Link>
-    </motion.div>
+    </motion.section>
   );
 };
 

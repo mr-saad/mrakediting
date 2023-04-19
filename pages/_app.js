@@ -9,31 +9,17 @@ import { animations } from "./index";
 import "../styles/global.css";
 
 export default function MyApp({ Component, pageProps, router }) {
-  const [minHeight, setMinHeight] = useState(0);
+
 
   const [loading, setLoading] = useState(false);
   Router.events.on("routeChangeStart", () => setLoading(true));
   Router.events.on("routeChangeComplete", () => setLoading(false));
   Router.events.on("routeChangeError", () => setLoading(false));
-  useEffect(
-    () =>
-      setMinHeight(innerHeight - document.querySelector("nav").clientHeight),
-    []
-  );
+
   return (
     <>
       <Head>
         <title>Mr Ak Editing | Official Website</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
-          rel="stylesheet"
-        />
         <meta
           name="keywords"
           content="mrakediting,mrayankhatri,ayan,khatri,mr,photoshop,editing,photo,graphic-design,design,graphic,poster,thumbnail,youtube-thumbnail,video-editing,video,mrakediting.netlify.app"
@@ -73,20 +59,21 @@ export default function MyApp({ Component, pageProps, router }) {
           content="Mr Ak Editing Provides Top Notch Editing Experience in Almost Everything"
         />
       </Head>
-      <AnimatePresence exitBeforeEnter>
-        {loading ? (
-          <motion.div
-            {...animations}
-            style={{ minHeight }}
-            className="loadingContainer"
-          >
-            <Spinner color="#faa500" />
-          </motion.div>
-        ) : (
-          <Component {...pageProps} key={router.route} />
-        )}
-      </AnimatePresence>
       <Navbar />
+      <div className="main_div">
+        <AnimatePresence exitBeforeEnter>
+          {loading ? (
+            <motion.div
+              {...animations}
+              className="loadingContainer"
+            >
+              <Spinner color="#262626" />
+            </motion.div>
+          ) : (
+            <Component {...pageProps} key={router.route} />
+          )}
+        </AnimatePresence>
+      </div>
     </>
   );
 }

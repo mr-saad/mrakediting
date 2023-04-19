@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
@@ -6,10 +6,9 @@ import { animations } from "./index";
 
 const categories = [, "Poster", "Thumbnail", "Graphic Design"];
 
-const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
+const Gallery = ({ results }) => {
   const [selectedCategory, setSelectedCategory] = useState("Poster");
   const [finals, setFinals] = useState([]);
-  const [minHeight, setMinHeight] = useState(0);
 
   useEffect(() => {
     switch (selectedCategory) {
@@ -42,14 +41,10 @@ const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
     }
   }, [selectedCategory]);
 
-  useEffect(
-    () =>
-      setMinHeight(innerHeight - document.querySelector("nav").clientHeight),
-    []
-  );
+
 
   return (
-    <motion.div {...animations} className="gallery" style={{ minHeight }}>
+    <motion.section {...animations} className="gallery-section" >
       <div className="filterContainer">
         {categories.map((all) => (
           <button
@@ -70,11 +65,11 @@ const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
               className={`imgContainer ${all.properties.Type.select.name}`}
             >
               <Image
-                quality={60}
+                quality={50}
                 src={all.properties.Photo.files[0].file.url}
                 alt={all.id}
-                objectFit="cover"
-                layout="fill"
+                fill
+                style={{ objectFit: "cover" }}
                 placeholder="blur"
                 blurDataURL={all.properties.Photo.files[0].file.url}
               />
@@ -82,7 +77,7 @@ const Gallery = ({ /* graphics, posters, thumbnails */ results }) => {
           );
         })}
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 
@@ -98,36 +93,10 @@ export const getServerSideProps = async () => {
     })
   ).results;
 
-  // const posters = (
-  //   await notion.databases.query({
-  //     database_id: process.env.NOTION_DATABASE_ID,
-  //     filter: {
-  //       property: "Type",
-  //       select: {
-  //         equals: "Poster",
-  //       },
-  //     },
-  //   })
-  // ).results;
-
-  // const thumbnails = (
-  //   await notion.databases.query({
-  //     database_id: process.env.NOTION_DATABASE_ID,
-  //     filter: {
-  //       property: "Type",
-  //       select: {
-  //         equals: "Thumbnail",
-  //       },
-  //     },
-  //   })
-  // ).results;
 
   return {
     props: {
       results,
-      // graphics,
-      // posters,
-      // thumbnails,
     },
   };
 };

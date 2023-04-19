@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from "react";
-
 import { motion } from "framer-motion";
 import { animations } from "./index";
 const About = () => {
-  const [minHeight, setMinHeight] = useState(0);
-  useEffect(() => {
-    setMinHeight(innerHeight - document.querySelector("nav").clientHeight);
-  }, []);
   return (
-    <motion.div {...animations} className="about" style={{ minHeight }}>
-      {/* <div className="flex"> */}
+    <motion.section {...animations} className="about" >
       <div className="workGrid">
         <div className="workTile">
           <span className="bigTxt">3+ </span>
@@ -17,7 +10,7 @@ const About = () => {
           Years Experience
         </div>
         <div className="workTile">
-          <span className="bigTxt">700+</span> <br />
+          <span className="bigTxt">900+</span> <br />
           Projects Done
         </div>
         <div className="vrLine"></div>
@@ -43,7 +36,7 @@ const About = () => {
           All Types Of Designing
         </p>
       </ul>
-    </motion.div>
+    </motion.section>
   );
 };
 

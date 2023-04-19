@@ -1,50 +1,43 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export const animations = {
   animate: { opacity: 1 },
   initial: { opacity: 0 },
   exit: { opacity: 0 },
-  transition: { easings: "anticipate" },
+  transition: { duration: 0.1, easings: "anticipate" },
 };
 
 const Home = () => {
-  const [minHeight, setMinHeight] = useState(0);
-  useEffect(() => {
-    setMinHeight(innerHeight - document.querySelector("nav").clientHeight);
-  }, []);
-
   return (
-    <motion.header {...animations} style={{ minHeight }}>
+    <motion.section className="home" {...animations} >
       <div className="left">
         <h1 className="headingAk">
-          Hi! I'm <br />
-          <span>Ayan Khatri</span>
+          Hey! I'm <span>Ayan Khatri</span>
         </h1>
-        <p className="tag">graphic designer / freelancer</p>
+        <p className="tag">graphic designer | freelancer</p>
         <p className="headerDescription">
-          "design can be art. design can be aesthetics. design is so simple,
-          that's why it is so complicated."
+          "Design can be Art. design can be Aesthetics. design is so Simple,
+          that's why it is so Complicated"
         </p>
         <Link href="/about" className="btn">
           More About Me
         </Link>
       </div>
-      <figure>
-        <Image
-          quality={50}
-          placeholder="blur"
-          blurDataURL="/ayan_new.jpg"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="top"
-          src="/ayan_new.jpg"
-          alt="Ayan Khatri"
-        />
-      </figure>
-    </motion.header>
+
+      <Image
+        quality={50}
+        sizes="(max-width:540px) 30vw,(max-width:768px) 50vw,(max-width:1200px) 80vw"
+        priority
+        width={300}
+        height={400}
+        style={{ objectFit: "cover", objectPosition: "top" }}
+        src="/ayan_new.jpg"
+        alt="Ayan Khatri"
+      />
+
+    </motion.section>
   );
 };
 
