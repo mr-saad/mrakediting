@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { animations } from "./index";
 const About = () => {
   return (
-    <motion.section {...animations} className="about" >
+    <motion.section {...animations} className="about">
       <div className="workGrid">
         <div className="workTile">
           <span className="bigTxt">3+ </span>
@@ -32,9 +32,7 @@ const About = () => {
         <li>Wedding Card | Invitation Card</li>
         <li>Advertising Post design | Bill book invoice</li>
         <li>Social Media Post Design</li>
-        <p style={{ marginTop: 10, textAlign: "center" }}>
-          All Types Of Designing
-        </p>
+        <p style={{ marginTop: 10 }}>All Types Of Designing</p>
       </ul>
     </motion.section>
   );

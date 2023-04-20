@@ -11,7 +11,7 @@ export const animations = {
 
 const Home = () => {
   return (
-    <motion.section className="home" {...animations} >
+    <motion.section className="home" {...animations}>
       <div className="left">
         <h1 className="headingAk">
           Hey! I'm <span>Ayan Khatri</span>
@@ -27,16 +27,14 @@ const Home = () => {
       </div>
 
       <Image
-        quality={50}
-        sizes="(max-width:540px) 30vw,(max-width:768px) 50vw,(max-width:1200px) 80vw"
-        priority
-        width={300}
+        sizes="(max-width:540px) 50vw,(max-width:1200px) 80vw"
+        priority={true}
+        width={400}
         height={400}
-        style={{ objectFit: "cover", objectPosition: "top" }}
+        style={{ objectFit: "cover", objectPosition: "top", maxWidth: "100%" }}
         src="/ayan_new.jpg"
         alt="Ayan Khatri"
       />
-
     </motion.section>
   );
 };
