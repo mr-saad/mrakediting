@@ -1,13 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Image from "next/image"
+import Link from "next/link"
+import { motion } from "framer-motion"
 
 export const animations = {
   animate: { opacity: 1 },
   initial: { opacity: 0 },
   exit: { opacity: 0 },
   transition: { duration: 0.1, easings: "anticipate" },
-};
+}
 
 const Home = () => {
   return (
@@ -29,14 +29,14 @@ const Home = () => {
       <Image
         sizes="(max-width:540px) 50vw,(max-width:1200px) 80vw"
         priority={true}
-        width={400}
-        height={400}
+        width={500}
+        height={500}
         style={{ objectFit: "cover", objectPosition: "top", maxWidth: "100%" }}
         src="/ayan_new.jpg"
         alt="Ayan Khatri"
       />
     </motion.section>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

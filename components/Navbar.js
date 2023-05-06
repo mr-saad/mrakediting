@@ -1,9 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 
 const Navbar = () => {
-  const path = usePathname();
+  const path = usePathname()
 
   return (
     <nav>
@@ -12,9 +12,6 @@ const Navbar = () => {
       </Link>
       <div className="divider"></div>
       <ul>
-        <Link className={`${path === "/" && "active"}`} href="/">
-          Home
-        </Link>
         <Link className={`${path === "/gallery" && "active"}`} href="/gallery">
           Gallery
         </Link>
@@ -26,7 +23,7 @@ const Navbar = () => {
         </Link>
       </ul>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

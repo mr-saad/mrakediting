@@ -1,18 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import Image from "next/image"
+import Link from "next/link"
+import React, { useEffect, useState } from "react"
 
-import { motion } from "framer-motion";
-import Spinner from "react-spinners/RingLoader";
-import { animations } from "./index";
+import { motion } from "framer-motion"
+import Spinner from "react-spinners/RingLoader"
+import { animations } from "./index"
 
-const categories = [, "Poster", "Thumbnail", "Graphic Design"];
+const categories = [, "Poster", "Thumbnail", "Graphic Design"]
 
 const Gallery = ({ results }) => {
-  const [selectedCategory, setSelectedCategory] = useState("Poster");
-  const [finals, setFinals] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-  const [selected, setSelected] = useState({});
+  const [selectedCategory, setSelectedCategory] = useState("Poster")
+  const [finals, setFinals] = useState([])
+  const [showModal, setShowModal] = useState(false)
+  const [selected, setSelected] = useState({})
 
   useEffect(() => {
     switch (selectedCategory) {
@@ -21,29 +21,29 @@ const Gallery = ({ results }) => {
           results.filter(
             (all) => all.properties.Type.select.name === "Graphic Design"
           )
-        );
-        break;
+        )
+        break
       case "Poster":
         setFinals(
           results.filter((all) => all.properties.Type.select.name === "Poster")
-        );
+        )
 
-        break;
+        break
       case "Thumbnail":
         setFinals(
           results.filter(
             (all) => all.properties.Type.select.name === "Thumbnail"
           )
-        );
+        )
 
-        break;
+        break
 
       default:
         setFinals(
           results.filter((all) => all.properties.Type.select.name === "Poster")
-        );
+        )
     }
-  }, [selectedCategory]);
+  }, [selectedCategory])
 
   return (
     <motion.section {...animations} className="gallery-section">
@@ -66,37 +66,39 @@ const Gallery = ({ results }) => {
               key={all.id}
               className={`imgContainer ${all.properties.Type.select.name}`}
               onClick={() => {
-                setSelected(all);
-                setShowModal(!showModal);
+                setSelected(all)
+                setShowModal(!showModal)
               }}
             >
               <Image
                 priority={true}
-                sizes="(max-width:540px) 30vw,(max-width:768px) 50vw,(max-width:1200px) 70vw"
+                sizes="(max-width: 540px) 40vw,
+                (max-width: 786px) 60vw,
+                (max-width: 1200px) 80vw"
                 quality={50}
                 src={all.properties.Photo.files[0].file.url}
                 alt={all.id}
-                fill
+                fill={true}
                 style={{ objectFit: "cover" }}
                 placeholder="blur"
                 blurDataURL={all.properties.Photo.files[0].file.url}
               />
             </div>
-          );
+          )
         })}
       </div>
       {showModal && <Modal selected={selected} setShowModal={setShowModal} />}
     </motion.section>
-  );
-};
+  )
+}
 
 const Modal = ({ selected, setShowModal }) => {
-  const [load, setLoad] = useState(true);
+  const [load, setLoad] = useState(true)
   return (
     <div
       className="modal"
       onClick={() => {
-        setShowModal(false);
+        setShowModal(false)
       }}
     >
       <div
@@ -105,10 +107,10 @@ const Modal = ({ selected, setShowModal }) => {
       >
         {load && <Loader />}
         <Image
-          priority={true}
           onLoadingComplete={() => setLoad(false)}
-          sizes="(max-width:540px) 60vw,(max-width:1200px) 70vw"
-          quality={50}
+          sizes="(max-width: 540px) 40vw,
+          (max-width: 786px) 60vw,
+          (max-width: 1200px) 80vw"
           className={selected.properties.Type.select.name}
           alt={selected.id}
           style={{ objectFit: "cover", width: "auto", height: "auto" }}
@@ -119,8 +121,8 @@ const Modal = ({ selected, setShowModal }) => {
         <Link href={selected.properties.PostURL.url}>View Post</Link>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const Loader = () => {
   return (
@@ -129,24 +131,24 @@ const Loader = () => {
     >
       <Spinner color="#262626" />
     </div>
-  );
-};
+  )
+}
 
-export default Gallery;
+export default Gallery
 
-import { Client } from "@notionhq/client";
-const notion = new Client({ auth: process.env.NOTION_TOKEN });
+export const getServerSideProps = async () => {
+  const { Client } = await import("@notionhq/client")
+  const notion = new Client({ auth: process.env.NOTION_TOKEN })
 
-export const getStaticProps = async () => {
   const results = (
     await notion.databases.query({
       database_id: process.env.NOTION_DATABASE_ID,
     })
-  ).results;
+  ).results
 
   return {
     props: {
       results,
     },
-  };
-};
+  }
+}
