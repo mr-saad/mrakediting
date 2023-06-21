@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import { animations } from "./index";
+import { motion } from "framer-motion"
+import { animations } from "./index"
 const About = () => {
   return (
     <motion.section {...animations} className="about">
@@ -34,8 +34,32 @@ const About = () => {
         <li>Social Media Post Design</li>
         <p style={{ marginTop: 10 }}>All Types Of Designing</p>
       </ul>
+      <ul className="aboutPs">
+        <li>
+          As a graphic designer, I harness the power of Photoshop to bring my
+          creative visions to life.
+        </li>
+        <li>
+          With Photoshop as my digital playground, I seamlessly manipulate and
+          enhance images, pushing the boundaries of visual expression.
+        </li>
+        <li>
+          From retouching photographs to creating stunning compositions,
+          Photoshop is my trusted tool for achieving artistic perfection.
+        </li>
+        <li>
+          The versatility of Photoshop empowers me to experiment with various
+          effects, colors, and textures, breathing life into my designs.
+        </li>
+        With Photoshop, I can seamlessly remove imperfections, adjust lighting,
+        and enhance the overall aesthetics of my artwork.
+        <li>
+          Photoshop's powerful typography tools enable me to create captivating
+          text treatments that convey messages with impact.
+        </li>
+      </ul>
     </motion.section>
-  );
-};
+  )
+}
 
-export default About;
+export default About

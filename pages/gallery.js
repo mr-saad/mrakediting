@@ -81,7 +81,7 @@ const Gallery = ({ results }) => {
                 fill={true}
                 style={{ objectFit: "cover" }}
                 placeholder="blur"
-                blurDataURL={all.properties.Photo.files[0].file.url}
+                blurDataURL="/loading.png"
               />
             </div>
           )
@@ -93,7 +93,6 @@ const Gallery = ({ results }) => {
 }
 
 const Modal = ({ selected, setShowModal }) => {
-  const [load, setLoad] = useState(true)
   return (
     <div
       className="modal"
@@ -105,9 +104,7 @@ const Modal = ({ selected, setShowModal }) => {
         onClick={(e) => e.stopPropagation()}
         className={"modal-img-container"}
       >
-        {load && <Loader />}
         <Image
-          onLoadingComplete={() => setLoad(false)}
           sizes="(max-width: 540px) 40vw,
           (max-width: 786px) 60vw,
           (max-width: 1200px) 80vw"
@@ -116,20 +113,12 @@ const Modal = ({ selected, setShowModal }) => {
           style={{ objectFit: "cover", width: "auto", height: "auto" }}
           width={200}
           height={200}
+          placeholder="blur"
+          blurDataURL="/loading.png"
           src={selected.properties.Photo.files[0].file.url}
         />
         <Link href={selected.properties.PostURL.url}>View Post</Link>
       </div>
-    </div>
-  )
-}
-
-const Loader = () => {
-  return (
-    <div
-      style={{ position: "absolute", marginTop: "1rem", marginLeft: "1rem" }}
-    >
-      <Spinner color="#262626" />
     </div>
   )
 }

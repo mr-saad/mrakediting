@@ -16,18 +16,18 @@ const Home = () => {
         <h1 className="headingAk">
           Hey! I'm <span>Ayan Khatri</span>
         </h1>
-        <p className="tag">graphic designer | freelancer</p>
+        <p>Graphic Designer | Freelancer</p>
         <p className="headerDescription">
-          "Design can be Art. design can be Aesthetics. design is so Simple,
-          that's why it is so Complicated"
+          Design can be Art. design can be Aesthetics. design is so Simple,
+          that's why it is so Complicated
         </p>
         <Link href="/about" className="btn">
-          More About Me
+          About Me
         </Link>
       </div>
 
       <Image
-        sizes="(max-width:540px) 50vw,(max-width:1200px) 80vw"
+        sizes="(max-width: 540px) 50vw,(max-width: 1200px) 80vw"
         priority={true}
         width={500}
         height={500}

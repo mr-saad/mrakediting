@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion"
+import { animations } from "./index"
+import { FaPhoneAlt } from "react-icons/fa"
+import { SiGmail } from "react-icons/si"
+import { RiInstagramFill, RiWhatsappFill } from "react-icons/ri"
 
-import { motion } from "framer-motion";
-import { animations } from "./index";
-import { FaPhoneAlt } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
-import { RiInstagramFill, RiWhatsappFill } from "react-icons/ri";
-
-import Link from "next/link";
+import Link from "next/link"
 const Contact = () => {
-
   return (
     <motion.section className="contact" {...animations}>
       <Link target="_blank" href="tel:919265749251" className="icon_container">
@@ -36,7 +33,7 @@ const Contact = () => {
         <RiWhatsappFill style={{ marginRight: 5 }} /> WhatsApp: 9265749251
       </Link>
     </motion.section>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

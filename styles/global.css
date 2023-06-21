@@ -10,8 +10,15 @@
   --bg: #262626;
   --light: hsl(0, 0%, 90%);
 }
+img {
+  background-size: contain !important;
+}
 body {
   padding-top: 5rem;
+  color: #262626bf;
+}
+a {
+  color: #262626;
 }
 .main_div {
   overflow: hidden;
@@ -64,7 +71,6 @@ nav ul a {
   border-radius: 0.3rem;
   padding: 0.5rem 1rem;
   text-align: center;
-  color: #000;
   text-decoration: none;
   transition: all 0.2s linear;
   -webkit-transition: all 0.2s linear;
@@ -78,16 +84,18 @@ nav ul a {
 }
 
 nav a.active {
-  background: var(--bg);
-  color: #fff;
+  font-weight: bold;
 }
 
 /* home page=============>> */
 
 section {
-  /* border: 1px solid; */
   display: flex;
   margin-top: 2rem;
+}
+.home {
+  gap: 2rem;
+  align-items: center;
 }
 .home .left,
 .home img {
@@ -97,34 +105,19 @@ section {
   display: block;
   filter: grayscale(1);
   -webkit-filter: grayscale(1);
-  border-radius: 0.3rem;
-  -webkit-border-radius: 0.3rem;
-  -moz-border-radius: 0.3rem;
-  -ms-border-radius: 0.3rem;
-  -o-border-radius: 0.3rem;
+  border-radius: 100vw;
+  -webkit-border-radius: 100vw;
+  -moz-border-radius: 100vw;
+  -ms-border-radius: 100vw;
+  -o-border-radius: 100vw;
 }
 .headingAk {
-  font-size: 1rem;
-  margin-left: 1.1rem;
+  font-size: 3rem;
   font-weight: normal;
 }
 .headingAk span {
   font-weight: bold;
-}
-
-.tag {
-  display: inline-block;
-  margin-top: 0.5rem;
-  text-transform: capitalize;
-  border: 1px solid var(--light);
   color: var(--bg);
-  padding: 0.5rem 1rem;
-  border-radius: 0.3rem;
-  margin-bottom: 2rem;
-  -webkit-border-radius: 0.3rem;
-  -moz-border-radius: 0.3rem;
-  -ms-border-radius: 0.3rem;
-  -o-border-radius: 0.3rem;
 }
 
 .btn {
@@ -140,6 +133,15 @@ section {
   -moz-border-radius: 0.3rem;
   -ms-border-radius: 0.3rem;
   -o-border-radius: 0.3rem;
+  border: 1px solid var(--bg);
+}
+.btn:hover {
+  background: #fff;
+  color: var(--bg);
+}
+.headerDescription {
+  margin-block: 0.35rem;
+  text-transform: capitalize;
 }
 
 /* gallery=================>> */
@@ -229,7 +231,6 @@ img {
 }
 .modal-img-container a {
   text-decoration: none;
-  color: #000;
   padding: 0.5rem 1rem;
   text-align: center;
 }
@@ -281,6 +282,12 @@ img {
   line-height: 2;
 }
 
+.aboutPs {
+  padding-left: 1.2rem;
+  line-height: 2;
+  margin-block: 2rem;
+}
+
 /* contact===========================>> */
 .contact {
   gap: 1rem;
@@ -292,7 +299,6 @@ img {
   background: var(--light);
   align-items: center;
   text-decoration: none;
-  color: #000;
   transition: all 0.2s linear;
   padding: 0.5rem 1rem;
   -webkit-transition: all 0.2s linear;
@@ -307,7 +313,7 @@ img {
 }
 .icon_container:active,
 .icon_container:hover {
-  background: #000;
+  background: var(--bg);
   color: #fff;
 }
 
@@ -336,15 +342,6 @@ img {
     font-size: 1.5rem;
     margin-left: 0;
   }
-  .tag {
-    margin-top: 0.2rem;
-    margin-bottom: 1rem;
-  }
-  .btn {
-    margin-bottom: 1rem;
-  }
-
-  /* portfolio========================>> */
 
   .filterBtn {
     padding: 0.7rem;

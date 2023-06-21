@@ -1,20 +1,18 @@
-import Head from "next/head";
-import { useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
-import Spinner from "react-spinners/RingLoader";
-import Router from "next/router";
-import { AnimatePresence, motion } from "framer-motion";
-import { animations } from "./index";
+import Head from "next/head"
+import { useState } from "react"
+import Navbar from "../components/Navbar"
+import Spinner from "react-spinners/BeatLoader"
+import Router from "next/router"
+import { AnimatePresence, motion } from "framer-motion"
+import { animations } from "./index"
 
-import "../styles/global.css";
+import "../styles/global.css"
 
 export default function MyApp({ Component, pageProps, router }) {
-
-
-  const [loading, setLoading] = useState(false);
-  Router.events.on("routeChangeStart", () => setLoading(true));
-  Router.events.on("routeChangeComplete", () => setLoading(false));
-  Router.events.on("routeChangeError", () => setLoading(false));
+  const [loading, setLoading] = useState(false)
+  Router.events.on("routeChangeStart", () => setLoading(true))
+  Router.events.on("routeChangeComplete", () => setLoading(false))
+  Router.events.on("routeChangeError", () => setLoading(false))
 
   return (
     <>
@@ -63,10 +61,7 @@ export default function MyApp({ Component, pageProps, router }) {
       <div className="main_div">
         <AnimatePresence exitBeforeEnter>
           {loading ? (
-            <motion.div
-              {...animations}
-              className="loadingContainer"
-            >
+            <motion.div {...animations} className="loadingContainer">
               <Spinner color="#262626" />
             </motion.div>
           ) : (
@@ -75,5 +70,5 @@ export default function MyApp({ Component, pageProps, router }) {
         </AnimatePresence>
       </div>
     </>
-  );
+  )
 }
