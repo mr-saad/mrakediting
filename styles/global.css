@@ -8,11 +8,9 @@
 }
 :root {
   --bg: #262626;
-  --light: hsl(0, 0%, 90%);
+  --light: hsl(0, 0%, 95%);
 }
-img {
-  background-size: contain !important;
-}
+
 body {
   padding-top: 5rem;
   color: #262626bf;
@@ -22,8 +20,8 @@ a {
 }
 .main_div {
   overflow: hidden;
-  width: 1000px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 800px;
   margin-inline: auto;
 }
 
@@ -42,8 +40,8 @@ button {
 nav {
   z-index: 10;
   display: flex;
-  width: 1000px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 800px;
   margin-inline: auto;
 }
 nav img {
@@ -185,11 +183,11 @@ section {
   margin-bottom: 2rem;
 }
 img {
-  border-radius: 0.3rem;
-  -webkit-border-radius: 0.3rem;
-  -moz-border-radius: 0.3rem;
-  -ms-border-radius: 0.3rem;
-  -o-border-radius: 0.3rem;
+  width: 100%;
+  background-image: url("/loading.png") !important;
+  background-size: contain !important;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .imgContainer {
@@ -211,28 +209,24 @@ img {
   cursor: pointer;
 }
 .modal-img-container {
-  width: 500px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 450px;
   margin-inline: auto;
-  margin-top: 3rem;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
   background: #fff;
   cursor: default;
-}
-.modal-img-container .Graphic {
-  aspect-ratio: 1;
-}
-.modal-img-container .Thumbnail {
-  aspect-ratio: 16/9;
-}
-.modal-img-container .Poster {
-  aspect-ratio: 4/5;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
 }
 .modal-img-container a {
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-  text-align: center;
+  align-self: center;
+  margin-top: 0;
+  margin-block: 1rem;
 }
 
 /* about page==============>> */
@@ -293,6 +287,7 @@ img {
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: start;
+  align-items: start;
 }
 .icon_container {
   display: flex;

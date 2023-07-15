@@ -105,19 +105,25 @@ const Modal = ({ selected, setShowModal }) => {
         className={"modal-img-container"}
       >
         <Image
+          placeholder="empty"
           sizes="(max-width: 540px) 40vw,
           (max-width: 786px) 60vw,
           (max-width: 1200px) 80vw"
           className={selected.properties.Type.select.name}
           alt={selected.id}
-          style={{ objectFit: "cover", width: "auto", height: "auto" }}
-          width={200}
-          height={200}
-          placeholder="blur"
-          blurDataURL="/loading.png"
+          style={{
+            objectFit: "contain",
+            objectPosition: "top",
+            height: "auto",
+            backgroundImage: "unset",
+          }}
+          width={300}
+          height={300}
           src={selected.properties.Photo.files[0].file.url}
         />
-        <Link href={selected.properties.PostURL.url}>View Post</Link>
+        <Link className="btn" href={selected.properties.PostURL.url}>
+          View Post
+        </Link>
       </div>
     </div>
   )
@@ -125,7 +131,7 @@ const Modal = ({ selected, setShowModal }) => {
 
 export default Gallery
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const { Client } = await import("@notionhq/client")
   const notion = new Client({ auth: process.env.NOTION_TOKEN })
 
@@ -139,5 +145,6 @@ export const getServerSideProps = async () => {
     props: {
       results,
     },
+    revalidate: 4,
   }
 }

@@ -30,7 +30,7 @@ const Contact = () => {
         href="https://wa.me/+919265749251"
         className="icon_container"
       >
-        <RiWhatsappFill style={{ marginRight: 5 }} /> WhatsApp: 9265749251
+        <RiWhatsappFill style={{ marginRight: 5 }} /> WhatsApp: +91 9265749251
       </Link>
     </motion.section>
   )
