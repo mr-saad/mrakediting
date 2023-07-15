@@ -8,21 +8,22 @@
 }
 :root {
   --bg: #262626;
-  --light: hsl(0, 0%, 95%);
+  --light: #eee;
 }
 
 body {
-  padding-top: 5rem;
-  color: #262626bf;
-}
-a {
-  color: #262626;
-}
-.main_div {
-  overflow: hidden;
+  padding-top: 1rem;
+  color: #666;
   width: 100%;
   max-width: 800px;
   margin-inline: auto;
+  text-wrap: balance;
+}
+ul {
+  margin-inline-start: 1rem;
+}
+a {
+  color: #666;
 }
 
 .loadingContainer {
@@ -93,7 +94,6 @@ section {
 }
 .home {
   gap: 2rem;
-  align-items: center;
 }
 .home .left,
 .home img {
@@ -103,15 +103,19 @@ section {
   display: block;
   filter: grayscale(1);
   -webkit-filter: grayscale(1);
-  border-radius: 100vw;
-  -webkit-border-radius: 100vw;
-  -moz-border-radius: 100vw;
-  -ms-border-radius: 100vw;
-  -o-border-radius: 100vw;
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
 }
+
 .headingAk {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: normal;
+  margin-top: 0;
+  padding-top: 0;
+  line-height: normal;
 }
 .headingAk span {
   font-weight: bold;
@@ -138,7 +142,7 @@ section {
   color: var(--bg);
 }
 .headerDescription {
-  margin-block: 0.35rem;
+  margin-block: 1rem;
   text-transform: capitalize;
 }
 
@@ -235,6 +239,7 @@ img {
 }
 
 .workGrid {
+  max-width: 400px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   background: var(--bg);
@@ -255,8 +260,6 @@ img {
 }
 .whatido {
   text-transform: capitalize;
-  list-style: none;
-  text-align: center;
 }
 .vrLine {
   position: absolute;
@@ -277,7 +280,6 @@ img {
 }
 
 .aboutPs {
-  padding-left: 1.2rem;
   line-height: 2;
   margin-block: 2rem;
 }
@@ -314,23 +316,13 @@ img {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 1rem;
+    padding: 1rem;
     font-size: 0.85rem;
   }
-  /* navbar===============>> */
-  nav {
-    padding: 0 0.5rem;
-    /* flex-direction: column; */
-  }
-  .divider {
-    width: 2px;
-  }
-
   /* home==========>> */
 
   section {
     margin-top: 1rem;
-    padding: 0 0.5rem;
     flex-direction: column;
   }
   .headingAk {
@@ -347,7 +339,6 @@ img {
 
   /* about=============>> */
   .about {
-    padding: 1rem;
     flex-direction: column;
     justify-content: stretch;
   }

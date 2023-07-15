@@ -58,17 +58,15 @@ export default function MyApp({ Component, pageProps, router }) {
         />
       </Head>
       <Navbar />
-      <div className="main_div">
-        <AnimatePresence exitBeforeEnter>
-          {loading ? (
-            <motion.div {...animations} className="loadingContainer">
-              <Spinner color="#262626" />
-            </motion.div>
-          ) : (
-            <Component {...pageProps} key={router.route} />
-          )}
-        </AnimatePresence>
-      </div>
+      <AnimatePresence exitBeforeEnter>
+        {loading ? (
+          <motion.div {...animations} className="loadingContainer">
+            <Spinner color="#262626" />
+          </motion.div>
+        ) : (
+          <Component {...pageProps} key={router.route} />
+        )}
+      </AnimatePresence>
     </>
   )
 }

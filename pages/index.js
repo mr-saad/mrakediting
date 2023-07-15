@@ -13,10 +13,12 @@ const Home = () => {
   return (
     <motion.section className="home" {...animations}>
       <div className="left">
-        <h1 className="headingAk">
-          Hey! I'm <span>Ayan Khatri</span>
-        </h1>
-        <p>Graphic Designer | Freelancer</p>
+        <div>
+          <h1 className="headingAk">
+            Hey! I'm <span>Ayan Khatri</span>
+          </h1>
+          <p>Graphic Designer | Freelancer</p>
+        </div>
         <p className="headerDescription">
           Design can be Art. design can be Aesthetics. design is so Simple,
           that's why it is so Complicated
@@ -27,10 +29,10 @@ const Home = () => {
       </div>
 
       <Image
-        sizes="(max-width: 540px) 50vw,(max-width: 1200px) 80vw"
+        sizes="(max-width: 540px) 50vw, (max-width: 1200px) 80vw"
         priority={true}
-        width={500}
-        height={500}
+        width={300}
+        height={300}
         style={{ objectFit: "cover", objectPosition: "top", maxWidth: "100%" }}
         src="/ayan_new.jpg"
         alt="Ayan Khatri"
