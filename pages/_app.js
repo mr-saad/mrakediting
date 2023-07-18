@@ -20,7 +20,7 @@ export default function MyApp({ Component, pageProps, router }) {
         <title>Mr Ak Editing | Official Website</title>
         <meta
           name="keywords"
-          content="mrakediting,mrayankhatri,ayan,khatri,mr,photoshop,editing,photo,graphic-design,design,graphic,poster,thumbnail,youtube-thumbnail,video-editing,video,mrakediting.netlify.app"
+          content="mrakediting,mr ak editing,ak edits,mr ayan khatri,ayan khatri,photoshop editing,graphic design,poster design,thumbnail design,youtube thumbnail,video editing,mrakediting.netlify.app"
         />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />

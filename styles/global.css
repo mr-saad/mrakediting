@@ -188,22 +188,22 @@ section {
 }
 img {
   width: 100%;
-  background-image: url("/loading.png") !important;
+  background-image: url("/loading.svg") !important;
   background-size: contain !important;
   background-position: center;
   background-repeat: no-repeat;
 }
-
-.imgContainer {
+/*
+img {
   position: relative;
   aspect-ratio: 1;
 }
-.imgContainer.Thumbnail {
+img.Thumbnail {
   aspect-ratio: 16/9;
 }
-.imgContainer.Poster {
+img.Poster {
   aspect-ratio: 4/5;
-}
+} */
 
 /* modal==========================>> */
 .modal {
@@ -219,7 +219,7 @@ img {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--light);
   cursor: default;
   border-radius: 0.3rem;
   -webkit-border-radius: 0.3rem;
@@ -332,9 +332,6 @@ img {
 
   .filterBtn {
     padding: 0.7rem;
-  }
-  .grid {
-    padding: 0 1rem;
   }
 
   /* about=============>> */

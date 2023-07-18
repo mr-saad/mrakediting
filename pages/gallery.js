@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import Spinner from "react-spinners/RingLoader"
 import { animations } from "./index"
+import Head from "next/head"
 
 const categories = [, "Poster", "Thumbnail", "Graphic Design"]
 
@@ -47,6 +48,9 @@ const Gallery = ({ results }) => {
 
   return (
     <motion.section {...animations} className="gallery-section">
+      <Head>
+        <title>Gallery | Mr Ak Editing</title>
+      </Head>
       <div className="filterContainer">
         {categories.map((all) => (
           <button
@@ -62,28 +66,26 @@ const Gallery = ({ results }) => {
       <div className="grid">
         {finals.map((all) => {
           return (
-            <div
+            <Image
               key={all.id}
-              className={`imgContainer ${all.properties.Type.select.name}`}
               onClick={() => {
                 setSelected(all)
                 setShowModal(!showModal)
               }}
-            >
-              <Image
-                priority={true}
-                sizes="(max-width: 540px) 40vw,
+              className={`${all.properties.Type.select.name}`}
+              width={300}
+              height={300}
+              sizes="(max-width: 540px) 40vw,
                 (max-width: 786px) 60vw,
                 (max-width: 1200px) 80vw"
-                quality={50}
-                src={all.properties.Photo.files[0].file.url}
-                alt={all.id}
-                fill={true}
-                style={{ objectFit: "cover" }}
-                placeholder="blur"
-                blurDataURL="/loading.png"
-              />
-            </div>
+              src={all.properties.Photo.files[0].file.url}
+              alt={all.id}
+              style={{
+                objectFit: "cover",
+                height: "auto",
+                backgroundImage: "unset",
+              }}
+            />
           )
         })}
       </div>
@@ -105,18 +107,16 @@ const Modal = ({ selected, setShowModal }) => {
         className={"modal-img-container"}
       >
         <Image
-          placeholder="empty"
+          style={{
+            objectFit: "contain",
+            height: "auto",
+            backgroundImage: "unset",
+          }}
           sizes="(max-width: 540px) 40vw,
           (max-width: 786px) 60vw,
           (max-width: 1200px) 80vw"
           className={selected.properties.Type.select.name}
           alt={selected.id}
-          style={{
-            objectFit: "contain",
-            objectPosition: "top",
-            height: "auto",
-            backgroundImage: "unset",
-          }}
           width={300}
           height={300}
           src={selected.properties.Photo.files[0].file.url}
@@ -131,7 +131,7 @@ const Modal = ({ selected, setShowModal }) => {
 
 export default Gallery
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const { Client } = await import("@notionhq/client")
   const notion = new Client({ auth: process.env.NOTION_TOKEN })
 
@@ -145,6 +145,5 @@ export const getStaticProps = async () => {
     props: {
       results,
     },
-    revalidate: 4,
   }
 }
