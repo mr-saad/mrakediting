@@ -61,7 +61,7 @@ export default function MyApp({ Component, pageProps, router }) {
       <AnimatePresence exitBeforeEnter>
         {loading ? (
           <motion.div {...animations} className="loadingContainer">
-            <Spinner color="#262626" />
+            <Spinner color="#888" />
           </motion.div>
         ) : (
           <Component {...pageProps} key={router.route} />

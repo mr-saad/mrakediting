@@ -56,7 +56,7 @@ const Gallery = ({ results }) => {
           <button
             key={all}
             onClick={() => setSelectedCategory(all)}
-            className={`filterBtn ${selectedCategory === all && "active"}`}
+            className={`btn ${selectedCategory === all && "active"}`}
           >
             {all}s
           </button>
