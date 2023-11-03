@@ -1,13 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
-import React, { useEffect, useState } from "react"
-
+import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import Spinner from "react-spinners/RingLoader"
 import { animations } from "./index"
 import Head from "next/head"
+import { Client } from "@notionhq/client"
 
-const categories = [, "Poster", "Thumbnail", "Graphic Design"]
+const notion = new Client({ auth: process.env.NOTION_TOKEN })
+
+const categories = ["Poster", "Thumbnail", "Graphic Design"]
 
 const Gallery = ({ results }) => {
   const [selectedCategory, setSelectedCategory] = useState("Poster")
@@ -20,28 +21,26 @@ const Gallery = ({ results }) => {
       case "Graphic Design":
         setFinals(
           results.filter(
-            (all) => all.properties.Type.select.name === "Graphic Design"
+            all => all.properties.Type.select.name === "Graphic Design"
           )
         )
         break
       case "Poster":
         setFinals(
-          results.filter((all) => all.properties.Type.select.name === "Poster")
+          results.filter(all => all.properties.Type.select.name === "Poster")
         )
 
         break
       case "Thumbnail":
         setFinals(
-          results.filter(
-            (all) => all.properties.Type.select.name === "Thumbnail"
-          )
+          results.filter(all => all.properties.Type.select.name === "Thumbnail")
         )
 
         break
 
       default:
         setFinals(
-          results.filter((all) => all.properties.Type.select.name === "Poster")
+          results.filter(all => all.properties.Type.select.name === "Poster")
         )
     }
   }, [selectedCategory])
@@ -52,7 +51,7 @@ const Gallery = ({ results }) => {
         <title>Gallery | Mr Ak Editing</title>
       </Head>
       <div className="filterContainer">
-        {categories.map((all) => (
+        {categories.map(all => (
           <button
             key={all}
             onClick={() => setSelectedCategory(all)}
@@ -64,30 +63,33 @@ const Gallery = ({ results }) => {
       </div>
 
       <div className="grid">
-        {finals.map((all) => {
-          return (
-            <Image
-              key={all.id}
-              onClick={() => {
-                setSelected(all)
-                setShowModal(!showModal)
-              }}
-              className={`${all.properties.Type.select.name}`}
-              width={300}
-              height={300}
-              sizes="(max-width: 540px) 40vw,
+        {finals.length > 0
+          ? finals.map(all => {
+              return (
+                <Image
+                  key={all.id}
+                  onClick={() => {
+                    setSelected(all)
+                    setShowModal(!showModal)
+                  }}
+                  className={`${all.properties.Type.select.name}`}
+                  width={300}
+                  height={300}
+                  quality={40}
+                  sizes="(max-width: 540px) 40vw,
                 (max-width: 786px) 60vw,
                 (max-width: 1200px) 80vw"
-              src={all.properties.Photo.files[0].file.url}
-              alt={all.id}
-              style={{
-                objectFit: "cover",
-                height: "auto",
-                backgroundImage: "unset",
-              }}
-            />
-          )
-        })}
+                  src={all.properties.Photo.files[0].file.url}
+                  alt={all.id}
+                  style={{
+                    objectFit: "cover",
+                    height: "auto",
+                    backgroundImage: "unset"
+                  }}
+                />
+              )
+            })
+          : "No Posts"}
       </div>
       {showModal && <Modal selected={selected} setShowModal={setShowModal} />}
     </motion.section>
@@ -102,18 +104,15 @@ const Modal = ({ selected, setShowModal }) => {
         setShowModal(false)
       }}
     >
-      <div
-        onClick={(e) => e.stopPropagation()}
-        className={"modal-img-container"}
-      >
+      <div onClick={e => e.stopPropagation()} className={"modal-img-container"}>
         <Image
+          quality={100}
           style={{
             objectFit: "contain",
             height: "auto",
-            backgroundImage: "unset",
+            backgroundImage: "unset"
           }}
-          sizes="(max-width: 540px) 40vw,
-          (max-width: 786px) 60vw,
+          sizes="(max-width: 540px) 60vw,
           (max-width: 1200px) 80vw"
           className={selected.properties.Type.select.name}
           alt={selected.id}
@@ -132,18 +131,15 @@ const Modal = ({ selected, setShowModal }) => {
 export default Gallery
 
 export const getServerSideProps = async () => {
-  const { Client } = await import("@notionhq/client")
-  const notion = new Client({ auth: process.env.NOTION_TOKEN })
-
   const results = (
     await notion.databases.query({
-      database_id: process.env.NOTION_DATABASE_ID,
+      database_id: process.env.NOTION_DATABASE_ID
     })
   ).results
 
   return {
     props: {
-      results,
-    },
+      results
+    }
   }
 }

@@ -18,6 +18,13 @@ export default function MyApp({ Component, pageProps, router }) {
     <>
       <Head>
         <title>Mr Ak Editing | Official Website</title>
+        <link
+          rel="preload"
+          href="/Montserrat-Regular.ttf"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <meta
           name="keywords"
           content="mrakediting,mr ak editing,ak edits,mr ayan khatri,ayan khatri,photoshop editing,graphic design,poster design,thumbnail design,youtube thumbnail,video editing,mrakediting.netlify.app"
@@ -61,7 +68,7 @@ export default function MyApp({ Component, pageProps, router }) {
       <AnimatePresence exitBeforeEnter>
         {loading ? (
           <motion.div {...animations} className="loadingContainer">
-            <Spinner color="#888" />
+            <Spinner color="#999" />
           </motion.div>
         ) : (
           <Component {...pageProps} key={router.route} />

@@ -6,7 +6,7 @@ export const animations = {
   animate: { opacity: 1 },
   initial: { opacity: 0 },
   exit: { opacity: 0 },
-  transition: { duration: 0.1, easings: "anticipate" },
+  transition: { duration: 0.1, easings: "anticipate" }
 }
 
 const Home = () => {
@@ -17,12 +17,8 @@ const Home = () => {
           <h1 className="headingAk">
             I'm <span>Ayan Khatri</span>
           </h1>
-          <p>Graphic Designer | Freelancer</p>
+          <p style={{ marginBlock: "1rem" }}>Graphic Designer | Freelancer</p>
         </div>
-        <p className="headerDescription">
-          Design can be Art. design can be Aesthetics. design is so Simple,
-          that's why it is so Complicated
-        </p>
         <Link href="/about" className="btn">
           About Me
         </Link>
@@ -36,7 +32,12 @@ const Home = () => {
         blurDataURL="/loading.png"
         width={300}
         height={300}
-        style={{ objectFit: "cover", objectPosition: "top", maxWidth: "100%" }}
+        style={{
+          objectFit: "cover",
+          objectPosition: "top",
+          maxWidth: "100%",
+          aspectRatio: 1
+        }}
         src="/ayan_new.jpg"
         alt="Ayan Khatri"
       />

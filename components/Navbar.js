@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -7,20 +6,37 @@ const Navbar = () => {
 
   return (
     <nav>
-      <Link href={"/"}>
-        <Image alt="Ayan Khatri" src={"/ayan_new.jpg"} width={50} height={50} />
-      </Link>
-      <div className="divider"></div>
       <ul>
-        <Link className={`${path === "/gallery" && "active"}`} href="/gallery">
-          Gallery
-        </Link>
-        <Link className={`${path === "/about" && "active"}`} href="/about">
-          About
-        </Link>
-        <Link className={`${path === "/contact" && "active"}`} href="/contact">
-          Contact
-        </Link>
+        <li>
+          <Link
+            style={{ paddingLeft: 0 }}
+            className={`${path === "/" && "active"}`}
+            href="/"
+          >
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={`${path === "/gallery" && "active"}`}
+            href="/gallery"
+          >
+            Gallery
+          </Link>
+        </li>
+        <li>
+          <Link className={`${path === "/about" && "active"}`} href="/about">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={`${path === "/contact" && "active"}`}
+            href="/contact"
+          >
+            Contact
+          </Link>
+        </li>
       </ul>
     </nav>
   )

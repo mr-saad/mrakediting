@@ -23,8 +23,8 @@ const About = () => {
           Followers on IG
         </div>
       </div>
-      <ul className="whatido">
-        <h2>What I Do?</h2>
+      <h2 style={{ marginBottom: "1rem", color: "#eee" }}>What I Do?</h2>
+      <ul className="whatido" style={{ marginLeft: "1rem" }}>
         <li>YT Thumbnail | Poster | Retouching</li>
         <li>Logo | YT Cover | Lyrical Video</li>
         <li>Business Card | Visiting Card</li>
@@ -32,9 +32,9 @@ const About = () => {
         <li>Wedding Card | Invitation Card</li>
         <li>Advertising Post design | Bill book invoice</li>
         <li>Social Media Post Design</li>
-        <p style={{ marginTop: 10 }}>All Types Of Designing</p>
+        <li style={{ listStyle: "none" }}>All Types Of Designing</li>
       </ul>
-      <ul className="aboutPs">
+      <ul className="aboutPs" style={{ marginLeft: "1rem" }}>
         <li>
           As a graphic designer, I harness the power of Photoshop to bring my
           creative visions to life.
@@ -51,8 +51,7 @@ const About = () => {
           The versatility of Photoshop empowers me to experiment with various
           effects, colors, and textures, breathing life into my designs.
         </li>
-        With Photoshop, I can seamlessly remove imperfections, adjust lighting,
-        and enhance the overall aesthetics of my artwork.
+
         <li>
           Photoshop's powerful typography tools enable me to create captivating
           text treatments that convey messages with impact.
