@@ -20,11 +20,12 @@ export default function MyApp({ Component, pageProps, router }) {
         <title>Mr Ak Editing | Official Website</title>
         <link
           rel="preload"
-          href="/Montserrat-Regular.ttf"
+          href="/montserrat-variablefont.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        <link rel="canonical" href="https://mrakediting.netlify.app" />
         <meta
           name="keywords"
           content="mrakediting,mr ak editing,ak edits,mr ayan khatri,ayan khatri,photoshop editing,graphic design,poster design,thumbnail design,youtube thumbnail,video editing,mrakediting.netlify.app"

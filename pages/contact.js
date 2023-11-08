@@ -8,25 +8,21 @@ import Link from "next/link"
 const Contact = () => {
   return (
     <motion.section className="contact" {...animations}>
-      <Link target="_blank" href="tel:919265749251" className="btn">
-        <FaPhoneAlt style={{ marginRight: 5 }} /> Mobile Number: +91 92657 49251
+      <Link target="_blank" href="tel:919265749251">
+        <FaPhoneAlt style={{ marginRight: 5 }} />
+        Mobile Number: <span>+91 92657 49251</span>
       </Link>
-      <Link
-        target="_blank"
-        href="mailto:mrakediting03@gmail.com"
-        className="btn"
-      >
-        <SiGmail style={{ marginRight: 5 }} /> E-Mail: mrakediting03@gmail.com
+      <Link target="_blank" href="mailto:mrakediting03@gmail.com">
+        <SiGmail style={{ marginRight: 5 }} />
+        E-Mail: <span>mrakediting03@gmail.com</span>
       </Link>
-      <Link
-        target="_blank"
-        href="https://instagram.com/mrakediting"
-        className="btn"
-      >
-        <RiInstagramFill style={{ marginRight: 5 }} /> Instagram: @mrakediting
+      <Link target="_blank" href="https://instagram.com/mrakediting">
+        <RiInstagramFill style={{ marginRight: 5 }} />
+        Instagram: <span>@mrakediting</span>
       </Link>
-      <Link target="_blank" href="https://wa.me/+919265749251" className="btn">
-        <RiWhatsappFill style={{ marginRight: 5 }} /> WhatsApp: +91 9265749251
+      <Link target="_blank" href="https://wa.me/+919265749251">
+        <RiWhatsappFill style={{ marginRight: 5 }} />
+        WhatsApp: <span>+91 9265749251</span>
       </Link>
     </motion.section>
   )

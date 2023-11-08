@@ -1,9 +1,9 @@
+import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { animations } from "./index"
-import Head from "next/head"
 import { Client } from "@notionhq/client"
 
 const notion = new Client({ auth: process.env.NOTION_TOKEN })
