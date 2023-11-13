@@ -1,4 +1,3 @@
-import Head from "next/head"
 import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
@@ -47,9 +46,6 @@ const Gallery = ({ results }) => {
 
   return (
     <motion.section {...animations} className="gallery-section">
-      <Head>
-        <title>Gallery | Mr Ak Editing</title>
-      </Head>
       <div className="filterContainer">
         {categories.map(all => (
           <button
