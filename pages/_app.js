@@ -61,7 +61,7 @@ export default function MyApp({ Component, pageProps, router }) {
       <Navbar />
       <AnimatePresence exitBeforeEnter>
         {loading ? (
-          <p>Hold On</p>
+          <p style={{ marginTop: "2rem" }}>Hold On</p>
         ) : (
           <Component {...pageProps} key={router.route} />
         )}
