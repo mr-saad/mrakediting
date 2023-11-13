@@ -19,7 +19,7 @@ const Home = () => {
           </h1>
           <p style={{ marginBlock: "1rem" }}>Graphic Designer | Freelancer</p>
         </div>
-        <Link href="/about" className="btn">
+        <Link prefetch={false} href="/about" className="btn">
           About Me
         </Link>
       </div>

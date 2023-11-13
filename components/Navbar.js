@@ -1,14 +1,14 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
-const Navbar = () => {
+export default function Navbar() {
   const path = usePathname()
-
   return (
     <nav>
       <ul>
         <li>
           <Link
+            prefetch={false}
             style={{ paddingLeft: 0 }}
             className={`${path === "/" && "active"}`}
             href="/"
@@ -18,6 +18,7 @@ const Navbar = () => {
         </li>
         <li>
           <Link
+            prefetch={false}
             className={`${path === "/gallery" && "active"}`}
             href="/gallery"
           >
@@ -25,12 +26,17 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link className={`${path === "/about" && "active"}`} href="/about">
+          <Link
+            prefetch={false}
+            className={`${path === "/about" && "active"}`}
+            href="/about"
+          >
             About
           </Link>
         </li>
         <li>
           <Link
+            prefetch={false}
             className={`${path === "/contact" && "active"}`}
             href="/contact"
           >
@@ -41,5 +47,3 @@ const Navbar = () => {
     </nav>
   )
 }
-
-export default Navbar

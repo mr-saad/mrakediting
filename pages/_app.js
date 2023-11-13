@@ -1,10 +1,8 @@
 import Head from "next/head"
 import { useState } from "react"
 import Navbar from "../components/Navbar"
-import Spinner from "react-spinners/BeatLoader"
 import Router from "next/router"
 import { AnimatePresence, motion } from "framer-motion"
-import { animations } from "./index"
 
 import "../styles/global.css"
 
@@ -25,15 +23,15 @@ export default function MyApp({ Component, pageProps, router }) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link rel="canonical" href="https://mrakediting.netlify.app" />
+        <link rel="canonical" href="https://mrakediting.vercel.app" />
         <meta
           name="keywords"
-          content="mrakediting,mr ak editing,ak edits,mr ayan khatri,ayan khatri,photoshop editing,graphic design,poster design,thumbnail design,youtube thumbnail,video editing,mrakediting.netlify.app"
+          content="mrakediting,mr ak editing,ak edits,mr ayan khatri, ayan, khatri,photoshop editing,graphic design,poster design,thumbnail design,youtube thumbnail,video editing,mrakediting.vercel.app"
         />
         <meta name="robots" content="index, follow" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
-        <meta name="author" content="Ayan Khatri, Saad Khatri" />
+        <meta name="author" content="Saad Khatri" />
         <meta name="title" content="Mr Ak Editing | Official Website" />
         <meta
           name="description"
@@ -42,20 +40,15 @@ export default function MyApp({ Component, pageProps, router }) {
 
         {/* Open Graph / Facebook */}
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://mrakediting.netlify.app/" />
+        <meta property="og:url" content="https://mrakediting.vercel.app/" />
         <meta property="og:title" content="Mr Ak Editing | Official Website" />
         <meta
           property="og:description"
           content="Mr Ak Editing Provides Top Notch Editing Experience in Almost Everything"
         />
-        <meta property="og:image" content="" />
 
         {/* Twitter */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta
-          property="twitter:url"
-          content="https://mrakediting.netlify.app/"
-        />
+
         <meta
           property="twitter:title"
           content="Mr Ak Editing | Official Website"
@@ -68,9 +61,7 @@ export default function MyApp({ Component, pageProps, router }) {
       <Navbar />
       <AnimatePresence exitBeforeEnter>
         {loading ? (
-          <motion.div {...animations} className="loadingContainer">
-            <Spinner color="#999" />
-          </motion.div>
+          <p>Hold On</p>
         ) : (
           <Component {...pageProps} key={router.route} />
         )}

@@ -11,7 +11,7 @@
     BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
     sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
     Noto Color Emoji;
-  font-display: optional;
+  font-display: swap;
 }
 :root {
   --bg: #262626;
@@ -166,9 +166,9 @@ img {
 
 /* modal==========================>> */
 .modal {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  background: #00000070;
+  background: rgba(0, 0, 0, 0.7);
   cursor: pointer;
   padding: 1rem;
 }
@@ -201,7 +201,6 @@ img {
   max-width: 400px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  /* background: var(--bg); */
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   position: relative;
@@ -304,7 +303,7 @@ img {
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 640px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-gap: 1rem;

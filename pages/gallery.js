@@ -3,9 +3,6 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { animations } from "./index"
-import { Client } from "@notionhq/client"
-
-const notion = new Client({ auth: process.env.NOTION_TOKEN })
 
 const categories = ["Poster", "Thumbnail", "Graphic Design"]
 
@@ -72,9 +69,7 @@ const Gallery = ({ results }) => {
                   width={300}
                   height={300}
                   quality={40}
-                  sizes="(max-width: 540px) 40vw,
-                (max-width: 786px) 60vw,
-                (max-width: 1200px) 80vw"
+                  sizes="(max-width: 640px) 50vw, 33vw"
                   src={all.properties.Photo.files[0].file.url}
                   alt={all.id}
                   style={{
@@ -108,8 +103,7 @@ const Modal = ({ selected, setShowModal }) => {
             height: "auto",
             backgroundImage: "unset"
           }}
-          sizes="(max-width: 540px) 60vw,
-          (max-width: 1200px) 80vw"
+          sizes="(max-width: 640px) 100vw, 40vw"
           className={selected.properties.Type.select.name}
           alt={selected.id}
           width={300}
@@ -127,6 +121,9 @@ const Modal = ({ selected, setShowModal }) => {
 export default Gallery
 
 export const getServerSideProps = async () => {
+  const notion = new (await import("@notionhq/client")).Client({
+    auth: process.env.NOTION_TOKEN
+  })
   const results = (
     await notion.databases.query({
       database_id: process.env.NOTION_DATABASE_ID
