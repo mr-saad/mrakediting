@@ -1,5 +1,16 @@
 const nextConfig = {
-  images: { domains: ["s3.us-west-2.amazonaws.com"] },
-};
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "prod-files-secure.s3.us-west-2.amazonaws.com"
+      },
+      {
+        protocol: "https",
+        hostname: "s3.us-west-2.amazonaws.com"
+      }
+    ]
+  }
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
