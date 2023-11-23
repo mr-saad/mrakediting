@@ -27,11 +27,9 @@ const Home = () => {
       <Image
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw"
         loading="eager"
-        priority
         placeholder="blur"
-        blurDataURL="/loading.png"
-        width={300}
-        height={300}
+        width={400}
+        height={400}
         style={{
           objectFit: "cover",
           objectPosition: "top",

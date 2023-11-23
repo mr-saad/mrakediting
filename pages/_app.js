@@ -23,6 +23,13 @@ export default function MyApp({ Component, pageProps, router }) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        <link
+          rel="preload"
+          href="/ayan_new.jpg"
+          as="image"
+          type="image/jpg"
+          crossOrigin="anonymous"
+        />
         <link rel="canonical" href="https://mrakediting.vercel.app" />
         <meta
           name="keywords"
@@ -59,7 +66,7 @@ export default function MyApp({ Component, pageProps, router }) {
         />
       </Head>
       <Navbar />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence initial={false} exitBeforeEnter>
         {loading ? (
           <p style={{ marginTop: "2rem" }}>Hold On</p>
         ) : (

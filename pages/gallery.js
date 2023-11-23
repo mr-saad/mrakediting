@@ -120,7 +120,7 @@ const Modal = ({ selected, setShowModal }) => {
 
 export default Gallery
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
   const notion = new (await import("@notionhq/client")).Client({
     auth: process.env.NOTION_TOKEN
   })
@@ -133,6 +133,7 @@ export const getServerSideProps = async () => {
   return {
     props: {
       results
-    }
+    },
+    revalidate: 60
   }
 }
