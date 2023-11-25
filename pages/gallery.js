@@ -7,13 +7,14 @@ import { animations } from "./index"
 const categories = ["Poster", "Thumbnail", "Graphic Design"]
 
 const Gallery = ({ results }) => {
-  const [selectedCategory, setSelectedCategory] = useState("Poster")
   const [finals, setFinals] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [selected, setSelected] = useState({})
+  const [category, setCategory] = useState("Poster")
+  const [showCategory, setShowCategory] = useState(false)
 
   useEffect(() => {
-    switch (selectedCategory) {
+    switch (category) {
       case "Graphic Design":
         setFinals(
           results.filter(
@@ -31,7 +32,6 @@ const Gallery = ({ results }) => {
         setFinals(
           results.filter(all => all.properties.Type.select.name === "Thumbnail")
         )
-
         break
 
       default:
@@ -39,20 +39,38 @@ const Gallery = ({ results }) => {
           results.filter(all => all.properties.Type.select.name === "Poster")
         )
     }
-  }, [selectedCategory])
+  }, [category])
 
   return (
     <motion.section {...animations} className="gallery-section">
-      <div className="filterContainer">
-        {categories.map(all => (
-          <button
-            key={all}
-            onClick={() => setSelectedCategory(all)}
-            className={`btn ${selectedCategory === all && "active"}`}
-          >
-            {all}s
-          </button>
-        ))}
+      <div
+        onClick={() => setShowCategory(prev => !prev)}
+        className="filterContainer"
+      >
+        <span>{category}s</span>
+        <span>&#8623;</span>
+        {showCategory && (
+          <div className="filterDropdown">
+            {categories.map(all => (
+              <button
+                type="button"
+                key={all}
+                onClick={e => {
+                  e.stopPropagation()
+                  setShowCategory(false)
+                  setCategory(all)
+                }}
+                style={{
+                  width: "100%",
+                  textAlign: "left"
+                }}
+                className={`btn ${category === all && "active"}`}
+              >
+                {all}s
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="grid">
@@ -65,7 +83,6 @@ const Gallery = ({ results }) => {
                     setSelected(all)
                     setShowModal(!showModal)
                   }}
-                  className={`${all.properties.Type.select.name}`}
                   width={300}
                   height={300}
                   quality={40}
@@ -75,8 +92,10 @@ const Gallery = ({ results }) => {
                   style={{
                     objectFit: "cover",
                     height: "auto",
-                    backgroundImage: "unset"
+                    borderRadius: ".3rem"
                   }}
+                  placeholder="blur"
+                  blurDataURL="/loading.svg"
                 />
               )
             })
@@ -100,18 +119,18 @@ const Modal = ({ selected, setShowModal }) => {
           quality={100}
           style={{
             objectFit: "contain",
-            height: "auto",
-            backgroundImage: "unset"
+            height: "auto"
           }}
           sizes="(max-width: 640px) 100vw, 40vw"
-          className={selected.properties.Type.select.name}
           alt={selected.id}
           width={300}
           height={300}
           src={selected.properties.Photo.files[0].file.url}
+          placeholder="blur"
+          blurDataURL="/loading.svg"
         />
         <Link className="btn" href={selected.properties.PostURL.url}>
-          View Post
+          View Post&#8599;
         </Link>
       </div>
     </div>

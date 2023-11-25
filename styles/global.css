@@ -1,6 +1,7 @@
 @font-face {
   font-family: Montserrat;
   src: url("/montserrat-variablefont.woff2") format("woff2");
+  font-display: swap;
 }
 
 * {
@@ -11,10 +12,8 @@
     BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,
     sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,
     Noto Color Emoji;
-  font-display: swap;
 }
 :root {
-  --bg: #262626;
   --light: #eee;
 }
 
@@ -114,27 +113,13 @@ section {
 
 .btn {
   display: inline-block;
-  border-radius: 0.3rem;
   width: fit-content;
   cursor: pointer;
-  padding: 0.5rem 1rem;
   text-decoration: none;
-  -webkit-border-radius: 0.3rem;
-  -moz-border-radius: 0.3rem;
-  -ms-border-radius: 0.3rem;
-  -o-border-radius: 0.3rem;
-  border: 1px solid currentColor;
-  transition: 200ms ease;
-  -webkit-transition: 200ms ease;
-  -moz-transition: 200ms ease;
-  -ms-transition: 200ms ease;
-  -o-transition: 200ms ease;
+  color: #fff;
   background: transparent;
-  color: #999;
-}
-.btn:hover,
-.btn.active {
-  color: var(--light);
+  outline: none;
+  border: none;
 }
 
 /* gallery=================>> */
@@ -144,10 +129,35 @@ section {
 }
 
 .filterContainer {
+  max-width: 450px;
+  padding: 0.3rem;
+  color: #fff;
+  font-weight: bold;
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
+  user-select: none;
+}
+.filterDropdown {
+  position: absolute;
+  width: 100%;
+  bottom: -400%;
+  left: 0;
+  padding: 1rem;
+  background: #0f0f0f;
+  -o-border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  border-radius: 0.3rem;
+  box-shadow: 0 0 20px #0f0f0f;
+}
+.filterDropdown button {
+  display: block;
+  opacity: 0.6;
+  padding-block: 0.3rem;
 }
 
 .grid {
@@ -157,11 +167,8 @@ section {
   margin-bottom: 2rem;
 }
 img {
-  width: 100%;
-  background-image: url("/loading.svg") !important;
+  max-width: 100%;
   background-size: contain !important;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 
 /* modal==========================>> */

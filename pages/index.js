@@ -20,14 +20,13 @@ const Home = () => {
           <p style={{ marginBlock: "1rem" }}>Graphic Designer | Freelancer</p>
         </div>
         <Link prefetch={false} href="/about" className="btn">
-          About Me
+          About Me &#8599;
         </Link>
       </div>
 
       <Image
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw"
         loading="eager"
-        placeholder="blur"
         width={400}
         height={400}
         style={{
