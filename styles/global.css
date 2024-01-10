@@ -130,22 +130,29 @@ section {
 
 .filterContainer {
   max-width: 450px;
-  padding: 0.3rem;
+  padding: 0.5rem;
   color: #fff;
   font-weight: bold;
-  display: flex;
-  justify-content: space-between;
   position: relative;
   margin-bottom: 1.25rem;
-  cursor: pointer;
-  user-select: none;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 0.3rem;
+  -webkit-border-radius: 0.3rem;
+  -moz-border-radius: 0.3rem;
+  -ms-border-radius: 0.3rem;
+  -o-border-radius: 0.3rem;
+}
+.filterContainer > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .filterDropdown {
   position: absolute;
   width: 100%;
-  bottom: -400%;
+  top: 105%;
   left: 0;
-  padding: 1rem;
+  padding: 0.5rem;
   background: #0f0f0f;
   -o-border-radius: 0.3rem;
   -webkit-border-radius: 0.3rem;
@@ -153,11 +160,15 @@ section {
   -ms-border-radius: 0.3rem;
   border-radius: 0.3rem;
   box-shadow: 0 0 20px #0f0f0f;
+  border: 1px solid rgb(255 255 255 / 0.3);
 }
 .filterDropdown button {
   display: block;
   opacity: 0.6;
   padding-block: 0.3rem;
+}
+.filterDropdown button:hover {
+  opacity: 1;
 }
 
 .grid {

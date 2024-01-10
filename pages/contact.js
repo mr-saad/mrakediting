@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { animations } from "./index"
+import { animations } from "../components/animations"
 import { FaPhoneAlt } from "react-icons/fa"
 import { SiGmail } from "react-icons/si"
 import { RiInstagramFill, RiWhatsappFill } from "react-icons/ri"

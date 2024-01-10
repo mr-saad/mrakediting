@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { animations } from "./index"
+import { animations } from "../components/animations"
 
 const categories = ["Poster", "Thumbnail", "Graphic Design"]
 
@@ -44,11 +44,28 @@ const Gallery = ({ results }) => {
   return (
     <motion.section {...animations} className="gallery-section">
       <div
-        onClick={() => setShowCategory(prev => !prev)}
         className="filterContainer"
+        onClick={() => setShowCategory(prev => !prev)}
       >
-        <span>{category}s</span>
-        <span>&#8623;</span>
+        <div style={{ cursor: "pointer" }}>
+          <span>{category}s</span>
+          <span>
+            <svg
+              style={{ verticalAlign: "middle" }}
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </span>
+        </div>
         {showCategory && (
           <div className="filterDropdown">
             {categories.map(all => (
@@ -118,6 +135,7 @@ const Modal = ({ selected, setShowModal }) => {
         <Image
           quality={100}
           style={{
+            width: "100%",
             objectFit: "contain",
             height: "auto"
           }}
@@ -130,7 +148,7 @@ const Modal = ({ selected, setShowModal }) => {
           blurDataURL="/loading.svg"
         />
         <Link className="btn" href={selected.properties.PostURL.url}>
-          View Post&#8599;
+          View Post
         </Link>
       </div>
     </div>
@@ -153,6 +171,6 @@ export const getStaticProps = async () => {
     props: {
       results
     },
-    revalidate: 60
+    revalidate: 10
   }
 }

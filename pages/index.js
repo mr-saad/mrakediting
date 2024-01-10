@@ -1,15 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
+import { animations } from "../components/animations"
 
-export const animations = {
-  animate: { opacity: 1 },
-  initial: { opacity: 0 },
-  exit: { opacity: 0 },
-  transition: { duration: 0.1, easings: "anticipate" }
-}
-
-const Home = () => {
+export default function Home() {
   return (
     <motion.section className="home" {...animations}>
       <div className="left">
@@ -20,26 +14,23 @@ const Home = () => {
           <p style={{ marginBlock: "1rem" }}>Graphic Designer | Freelancer</p>
         </div>
         <Link prefetch={false} href="/about" className="btn">
-          About Me &#8599;
+          About Me <span style={{ fontSize: 22 }}>&#8599;</span>
         </Link>
       </div>
 
       <Image
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw"
+        priority
+        sizes="(max-width: 640px) 90vw, 40vw"
         loading="eager"
+        decoding="async"
         width={400}
         height={400}
         style={{
-          objectFit: "cover",
-          objectPosition: "top",
-          maxWidth: "100%",
-          aspectRatio: 1
+          objectFit: "cover"
         }}
-        src="/ayan_new.jpg"
+        src="/ayan_new.webp"
         alt="Ayan Khatri"
       />
     </motion.section>
   )
 }
-
-export default Home

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { animations } from "./index"
+import { animations } from "../components/animations"
 const About = () => {
   return (
     <motion.section {...animations} className="about">

@@ -23,13 +23,6 @@ export default function MyApp({ Component, pageProps, router }) {
           type="font/woff2"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preload"
-          href="/ayan_new.jpg"
-          as="image"
-          type="image/jpg"
-          crossOrigin="anonymous"
-        />
         <link rel="canonical" href="https://mrakediting.vercel.app" />
         <meta
           name="keywords"
